@@ -18,9 +18,6 @@ namespace WindowsFormsApp2
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new HomePage()); 
         }
-        public static void a()
-        {
-
-        }
+     
     }
 }
