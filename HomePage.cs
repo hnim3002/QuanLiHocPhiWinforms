@@ -19,7 +19,7 @@ namespace WindowsFormsApp2
         private KhoaForm khoaForm;
         private HoaDonForm hoaDonForm;
         private HoaDonReportOptionForm hoaDonReportOptionForm;
-        private ChiTietHoaDonForm chiTietHoaDonForm;
+        private XemChiTietHoaDonForm chiTietHoaDonForm;
 
 
         public HomePage()
@@ -122,7 +122,7 @@ namespace WindowsFormsApp2
 
         public void openChiTietHoaDon(string maHD)
         {
-            chiTietHoaDonForm = new ChiTietHoaDonForm(maHD);
+            chiTietHoaDonForm = new XemChiTietHoaDonForm(maHD);
             chiTietHoaDonForm.AutoScroll = false;
             chiTietHoaDonForm.FormBorderStyle = FormBorderStyle.None;
             ResizeChildForm(chiTietHoaDonForm);
