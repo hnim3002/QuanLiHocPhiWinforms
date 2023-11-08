@@ -13,10 +13,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp2
 {
-    public partial class ChiTietHoaDonForm : Form
+    public partial class XemChiTietHoaDonForm : Form
     {
         private string maHD;
-        public ChiTietHoaDonForm(string maHD)
+        public XemChiTietHoaDonForm(string maHD)
         {
             InitializeComponent();
             this.maHD = maHD;

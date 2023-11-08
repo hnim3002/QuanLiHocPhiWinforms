@@ -53,11 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChiTietHoaDonForm.cs">
+    <Compile Include="XemChiTietHoaDonForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChiTietHoaDonForm.Designer.cs">
-      <DependentUpon>ChiTietHoaDonForm.cs</DependentUpon>
+    <Compile Include="XemChiTietHoaDonForm.Designer.cs">
+      <DependentUpon>XemChiTietHoaDonForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ChiTietHoaDonFormView.cs">
       <SubType>Form</SubType>
@@ -148,8 +148,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ChiTietHoaDonForm.resx">
-      <DependentUpon>ChiTietHoaDonForm.cs</DependentUpon>
+    <EmbeddedResource Include="XemChiTietHoaDonForm.resx">
+      <DependentUpon>XemChiTietHoaDonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChiTietHoaDonFormView.resx">
       <DependentUpon>ChiTietHoaDonFormView.cs</DependentUpon>
