@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp2
 {
-    partial class XemChiTietHoaDonForm
+    partial class ChiTietHoaDonFormXem
     {
         /// <summary>
         /// Required designer variable.

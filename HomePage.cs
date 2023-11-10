@@ -12,21 +12,22 @@ namespace WindowsFormsApp2
 {
     public partial class HomePage : Form
     {
-
+        private string maKhoa;
+        private string tenKhoa;
         private SinhVienForm sinhVienForm;
         private NhanVienForm nhanVienForm;
         private MonHocForm monHocForm;
         private KhoaForm khoaForm;
         private HoaDonForm hoaDonForm;
         private HoaDonReportOptionForm hoaDonReportOptionForm;
-        private XemChiTietHoaDonForm chiTietHoaDonForm;
+        private ChiTietHoaDonFormXem chiTietHoaDonForm;
 
 
-        public HomePage()
+        public HomePage(string maKhoa, string tenKhoa)
         {
             InitializeComponent();
-            
-          
+            this.maKhoa = maKhoa;
+            this.tenKhoa = tenKhoa;
         }
 
         private void ResizeChildForm(Form childForm)
@@ -53,9 +54,8 @@ namespace WindowsFormsApp2
         {
 
             CloseAllChildForms();
-            sinhVienForm = new SinhVienForm();
-            sinhVienForm.AutoScroll = false;
-            
+            sinhVienForm = new SinhVienForm(maKhoa, tenKhoa);
+            sinhVienForm.AutoScroll = false;          
             ResizeChildForm(sinhVienForm);
             sinhVienForm.FormBorderStyle = FormBorderStyle.None;
             sinhVienForm.MdiParent = this;
@@ -122,7 +122,7 @@ namespace WindowsFormsApp2
 
         public void openChiTietHoaDon(string maHD)
         {
-            chiTietHoaDonForm = new XemChiTietHoaDonForm(maHD);
+            chiTietHoaDonForm = new ChiTietHoaDonFormXem(maHD);
             chiTietHoaDonForm.AutoScroll = false;
             chiTietHoaDonForm.FormBorderStyle = FormBorderStyle.None;
             ResizeChildForm(chiTietHoaDonForm);

@@ -15,11 +15,14 @@ namespace WindowsFormsApp2
 {
     public partial class SinhVienForm : Form
     {
-       
+        private string maKhoa;
+        private string tenKhoa;
 
-        public SinhVienForm()
+        public SinhVienForm(string maKhoa, string tenKhoa)
         {
             InitializeComponent();
+            this.maKhoa = maKhoa;
+            this.tenKhoa = tenKhoa;
             AutoScaleMode = AutoScaleMode.Inherit;
 
             // Set the Dock property to Fill.
@@ -30,12 +33,6 @@ namespace WindowsFormsApp2
 
             FormClosing += ChildForm_FormClosing;
 
-            // Set the Anchor property to Top, Bottom, Left, and Right.
-
-
-
-
-            // Optionally, set the AutoScale property of the child form's controls to True.
 
         }
 
@@ -49,9 +46,8 @@ namespace WindowsFormsApp2
             using (connection)
             {
                 connection.Open();
-
-
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT_SV", connection);
+                dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
                 dataAdapter.TableMappings.Add("Table", "SinhVien");
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
@@ -89,9 +85,8 @@ namespace WindowsFormsApp2
             using (connection)
             {
                 connection.Open();
-
-
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT_SV", connection);
+                dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
                 dataAdapter.TableMappings.Add("Table", "SinhVien");
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 

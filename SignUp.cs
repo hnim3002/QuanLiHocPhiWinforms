@@ -15,6 +15,7 @@ namespace WindowsFormsApp2
 {
     public partial class SignUp : Form
     {
+        private DataProvider dataProvider = new DataProvider();
         public SignUp()
         {
             InitializeComponent();
@@ -32,38 +33,56 @@ namespace WindowsFormsApp2
         {
             if(passwordTxt.Text.ToString().Equals(rePasswordTxt.Text.ToString()))
             {
-                SqlConnection connection = new SqlConnection();
-                connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+                string a = tenKhoaComboBox.SelectedItem.ToString();
+                StringBuilder qry = new StringBuilder("EXEC insert_TaiKhoan");
+                qry.Append(" @tk= '" + accountTxt.Text + "'");
+                qry.Append(",@mk= N'" + passwordTxt.Text + "'");
+                qry.Append(",@tenKhoa= N'" + tenKhoaComboBox.Text + "'");
+                
+                dataProvider.execNonQuery(qry.ToString());
+                //SqlConnection connection = new SqlConnection();
+                //connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
 
-                using (connection)
-                {
-                    connection.Open();
-
-
-                    using (SqlCommand command = connection.CreateCommand())
-                    {
-
-
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.CommandText = "insert_TaiKhoan";
-
-                        command.Parameters.Add(new SqlParameter("@tk", accountTxt.Text.ToString()));
-                        command.Parameters.Add(new SqlParameter("@mk", passwordTxt.Text.ToString()));
+                //using (connection)
+                //{
+                //    connection.Open();
 
 
-                        command.ExecuteNonQuery();
+                //    using (SqlCommand command = connection.CreateCommand())
+                //    {
 
-                      
-                    }
+                //        command.CommandType = CommandType.StoredProcedure;
+                //        command.CommandText = "insert_TaiKhoan";
+
+                //        command.Parameters.Add(new SqlParameter("@tk", accountTxt.Text.ToString()));
+                //        command.Parameters.Add(new SqlParameter("@mk", passwordTxt.Text.ToString()));
 
 
-                }
+                //        command.ExecuteNonQuery();
+
+
+                //    }
+
+
+                //}
                 this.Hide();
                 SignIn signIn = new SignIn();
                 signIn.Closed += (s, args) => this.Close();
                 signIn.Show();
             }
             
+        }
+
+        private void SignUp_Load(object sender, EventArgs e)
+        {
+            DataTable dataTable = new DataTable();
+            StringBuilder qry = new StringBuilder("EXEC Select_tenKhoa");
+            dataTable = dataProvider.execQuery(qry.ToString());
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                tenKhoaComboBox.Items.Add(row["TenKhoa"]);
+            }
         }
     }
 }
