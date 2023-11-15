@@ -43,13 +43,7 @@
             this.maSVTxt = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.maHdText = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.chiTietHoaDonTable = new System.Windows.Forms.DataGridView();
             this.hocKyTxt = new System.Windows.Forms.Label();
@@ -61,6 +55,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.thanhTienTxt = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.chiTietHoaDonTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,37 +200,6 @@
             this.maHdText.TabIndex = 81;
             this.maHdText.Text = "Mã Hóa Đơn";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(787, 185);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(65, 22);
-            this.textBox1.TabIndex = 80;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(711, 191);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 16);
-            this.label6.TabIndex = 79;
-            this.label6.Text = "Đơn Giá";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(145, 188);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(205, 22);
-            this.textBox2.TabIndex = 78;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Cursor = System.Windows.Forms.Cursors.HSplit;
-            this.textBox3.Location = new System.Drawing.Point(477, 188);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(205, 22);
-            this.textBox3.TabIndex = 77;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -239,25 +208,6 @@
             this.label12.Size = new System.Drawing.Size(88, 16);
             this.label12.TabIndex = 76;
             this.label12.Text = "Mã Hóa Đơn: ";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(54, 191);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(83, 16);
-            this.label13.TabIndex = 75;
-            this.label13.Text = "Mã Môn Học";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(380, 191);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(88, 16);
-            this.label14.TabIndex = 74;
-            this.label14.Text = "Tên Môn Học";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label15
             // 
@@ -363,7 +313,57 @@
             this.label.TabIndex = 100;
             this.label.Text = "Thành Tiền:";
             // 
-            // ChiTietHoaDonForm
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(380, 191);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(88, 16);
+            this.label14.TabIndex = 74;
+            this.label14.Text = "Tên Môn Học";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(54, 191);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(83, 16);
+            this.label13.TabIndex = 75;
+            this.label13.Text = "Mã Môn Học";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(787, 185);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(65, 22);
+            this.textBox1.TabIndex = 80;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(145, 188);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(205, 22);
+            this.textBox2.TabIndex = 78;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(711, 191);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 16);
+            this.label6.TabIndex = 79;
+            this.label6.Text = "Đơn Giá";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Cursor = System.Windows.Forms.Cursors.HSplit;
+            this.textBox3.Location = new System.Drawing.Point(477, 188);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(205, 22);
+            this.textBox3.TabIndex = 77;
+            // 
+            // ChiTietHoaDonFormXem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -401,7 +401,7 @@
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.addBtn);
-            this.Name = "ChiTietHoaDonForm";
+            this.Name = "ChiTietHoaDonFormXem";
             this.Text = "ChiTietHoaDonForm";
             this.Load += new System.EventHandler(this.ChiTietHoaDonForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chiTietHoaDonTable)).EndInit();
@@ -426,13 +426,7 @@
         private System.Windows.Forms.Label maSVTxt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label maHdText;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridView chiTietHoaDonTable;
         private System.Windows.Forms.Label hocKyTxt;
@@ -444,5 +438,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label thanhTienTxt;
         private System.Windows.Forms.Label label;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

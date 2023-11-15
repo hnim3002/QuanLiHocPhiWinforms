@@ -34,7 +34,7 @@
             this.addBtn = new System.Windows.Forms.Button();
             this.dateTimeNgayLap = new System.Windows.Forms.DateTimePicker();
             this.textBoxMaNV = new System.Windows.Forms.TextBox();
-            this.textBoxTenSV = new System.Windows.Forms.TextBox();
+            this.textBoxMaSV = new System.Windows.Forms.TextBox();
             this.textBoxMaHD = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,14 +42,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxMienGiam = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.hoaDonTable = new System.Windows.Forms.DataGridView();
             this.radioButtonChuaNop = new System.Windows.Forms.RadioButton();
             this.radioButtonDaNop = new System.Windows.Forms.RadioButton();
-            this.textBoxHocKy = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.tenKhoaTxt = new System.Windows.Forms.Label();
+            this.textBoxNamHoc = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.hocKyOption = new System.Windows.Forms.ComboBox();
+            this.numberBoxMienGiam = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.hoaDonTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberBoxMienGiam)).BeginInit();
             this.SuspendLayout();
             // 
             // baoCaoBtn
@@ -70,6 +74,7 @@
             this.deleteBtn.TabIndex = 34;
             this.deleteBtn.Text = "Xóa";
             this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // updateBtn
             // 
@@ -79,6 +84,7 @@
             this.updateBtn.TabIndex = 33;
             this.updateBtn.Text = "Sửa";
             this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // addBtn
             // 
@@ -88,6 +94,7 @@
             this.addBtn.TabIndex = 32;
             this.addBtn.Text = "Thêm";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // dateTimeNgayLap
             // 
@@ -103,12 +110,12 @@
             this.textBoxMaNV.Size = new System.Drawing.Size(205, 22);
             this.textBoxMaNV.TabIndex = 28;
             // 
-            // textBoxTenSV
+            // textBoxMaSV
             // 
-            this.textBoxTenSV.Location = new System.Drawing.Point(156, 141);
-            this.textBoxTenSV.Name = "textBoxTenSV";
-            this.textBoxTenSV.Size = new System.Drawing.Size(205, 22);
-            this.textBoxTenSV.TabIndex = 27;
+            this.textBoxMaSV.Location = new System.Drawing.Point(156, 141);
+            this.textBoxMaSV.Name = "textBoxMaSV";
+            this.textBoxMaSV.Size = new System.Drawing.Size(205, 22);
+            this.textBoxMaSV.TabIndex = 27;
             // 
             // textBoxMaHD
             // 
@@ -167,18 +174,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(433, 32);
+            this.label1.Location = new System.Drawing.Point(338, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 16);
+            this.label1.Size = new System.Drawing.Size(132, 16);
             this.label1.TabIndex = 20;
-            this.label1.Text = "Danh Sách Hóa Đơn";
-            // 
-            // textBoxMienGiam
-            // 
-            this.textBoxMienGiam.Location = new System.Drawing.Point(519, 144);
-            this.textBoxMienGiam.Name = "textBoxMienGiam";
-            this.textBoxMienGiam.Size = new System.Drawing.Size(205, 22);
-            this.textBoxMienGiam.TabIndex = 38;
+            this.label1.Text = "Danh Sách Hóa Đơn:";
             // 
             // label8
             // 
@@ -224,13 +224,6 @@
             this.radioButtonDaNop.Text = "Đã Nộp";
             this.radioButtonDaNop.UseVisualStyleBackColor = true;
             // 
-            // textBoxHocKy
-            // 
-            this.textBoxHocKy.Location = new System.Drawing.Point(874, 147);
-            this.textBoxHocKy.Name = "textBoxHocKy";
-            this.textBoxHocKy.Size = new System.Drawing.Size(74, 22);
-            this.textBoxHocKy.TabIndex = 45;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -240,17 +233,64 @@
             this.label9.TabIndex = 44;
             this.label9.Text = "Học Kỳ";
             // 
+            // tenKhoaTxt
+            // 
+            this.tenKhoaTxt.AutoSize = true;
+            this.tenKhoaTxt.Location = new System.Drawing.Point(473, 29);
+            this.tenKhoaTxt.Name = "tenKhoaTxt";
+            this.tenKhoaTxt.Size = new System.Drawing.Size(129, 16);
+            this.tenKhoaTxt.TabIndex = 46;
+            this.tenKhoaTxt.Text = "Danh Sách Hóa Đơn";
+            // 
+            // textBoxNamHoc
+            // 
+            this.textBoxNamHoc.Location = new System.Drawing.Point(519, 186);
+            this.textBoxNamHoc.Name = "textBoxNamHoc";
+            this.textBoxNamHoc.Size = new System.Drawing.Size(205, 22);
+            this.textBoxNamHoc.TabIndex = 48;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(422, 189);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 16);
+            this.label7.TabIndex = 47;
+            this.label7.Text = "Năm Học";
+            // 
+            // hocKyOption
+            // 
+            this.hocKyOption.FormattingEnabled = true;
+            this.hocKyOption.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.hocKyOption.Location = new System.Drawing.Point(874, 150);
+            this.hocKyOption.Name = "hocKyOption";
+            this.hocKyOption.Size = new System.Drawing.Size(83, 24);
+            this.hocKyOption.TabIndex = 62;
+            // 
+            // numberBoxMienGiam
+            // 
+            this.numberBoxMienGiam.Location = new System.Drawing.Point(519, 147);
+            this.numberBoxMienGiam.Name = "numberBoxMienGiam";
+            this.numberBoxMienGiam.Size = new System.Drawing.Size(120, 22);
+            this.numberBoxMienGiam.TabIndex = 63;
+            // 
             // HoaDonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 589);
-            this.Controls.Add(this.textBoxHocKy);
+            this.Controls.Add(this.numberBoxMienGiam);
+            this.Controls.Add(this.hocKyOption);
+            this.Controls.Add(this.textBoxNamHoc);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.tenKhoaTxt);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.radioButtonDaNop);
             this.Controls.Add(this.radioButtonChuaNop);
             this.Controls.Add(this.hoaDonTable);
-            this.Controls.Add(this.textBoxMienGiam);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.baoCaoBtn);
             this.Controls.Add(this.deleteBtn);
@@ -258,7 +298,7 @@
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.dateTimeNgayLap);
             this.Controls.Add(this.textBoxMaNV);
-            this.Controls.Add(this.textBoxTenSV);
+            this.Controls.Add(this.textBoxMaSV);
             this.Controls.Add(this.textBoxMaHD);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -270,6 +310,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.HoaDonForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.hoaDonTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberBoxMienGiam)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,7 +324,7 @@
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.DateTimePicker dateTimeNgayLap;
         private System.Windows.Forms.TextBox textBoxMaNV;
-        private System.Windows.Forms.TextBox textBoxTenSV;
+        private System.Windows.Forms.TextBox textBoxMaSV;
         private System.Windows.Forms.TextBox textBoxMaHD;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -291,12 +332,15 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxMienGiam;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView hoaDonTable;
         private System.Windows.Forms.RadioButton radioButtonChuaNop;
         private System.Windows.Forms.RadioButton radioButtonDaNop;
-        private System.Windows.Forms.TextBox textBoxHocKy;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label tenKhoaTxt;
+        private System.Windows.Forms.TextBox textBoxNamHoc;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox hocKyOption;
+        private System.Windows.Forms.NumericUpDown numberBoxMienGiam;
     }
 }

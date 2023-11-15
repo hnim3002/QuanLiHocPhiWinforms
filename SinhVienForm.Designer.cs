@@ -33,10 +33,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.textBoxMaSV = new System.Windows.Forms.TextBox();
             this.textBoxTenSV = new System.Windows.Forms.TextBox();
-            this.textBoxMaK = new System.Windows.Forms.TextBox();
             this.radioBNam = new System.Windows.Forms.RadioButton();
             this.radioBNu = new System.Windows.Forms.RadioButton();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -45,17 +43,20 @@
             this.updateBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.textBoxLop = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tenKhoaTxt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sinhVienTable)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(464, 31);
+            this.label1.Location = new System.Drawing.Point(348, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 16);
+            this.label1.Size = new System.Drawing.Size(100, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Sinh Viên";
+            this.label1.Text = "Sinh Viên Khoa:";
             // 
             // label2
             // 
@@ -94,15 +95,6 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Ngày Sinh";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(132, 172);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 16);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Mã Khoa";
-            // 
             // textBoxMaSV
             // 
             this.textBoxMaSV.Cursor = System.Windows.Forms.Cursors.HSplit;
@@ -117,13 +109,6 @@
             this.textBoxTenSV.Name = "textBoxTenSV";
             this.textBoxTenSV.Size = new System.Drawing.Size(205, 22);
             this.textBoxTenSV.TabIndex = 8;
-            // 
-            // textBoxMaK
-            // 
-            this.textBoxMaK.Location = new System.Drawing.Point(229, 169);
-            this.textBoxMaK.Name = "textBoxMaK";
-            this.textBoxMaK.Size = new System.Drawing.Size(205, 22);
-            this.textBoxMaK.TabIndex = 11;
             // 
             // radioBNam
             // 
@@ -209,11 +194,39 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // textBoxLop
+            // 
+            this.textBoxLop.Location = new System.Drawing.Point(617, 172);
+            this.textBoxLop.Name = "textBoxLop";
+            this.textBoxLop.Size = new System.Drawing.Size(205, 22);
+            this.textBoxLop.TabIndex = 21;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(520, 175);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 16);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Lớp";
+            // 
+            // tenKhoaTxt
+            // 
+            this.tenKhoaTxt.AutoSize = true;
+            this.tenKhoaTxt.Location = new System.Drawing.Point(451, 24);
+            this.tenKhoaTxt.Name = "tenKhoaTxt";
+            this.tenKhoaTxt.Size = new System.Drawing.Size(97, 16);
+            this.tenKhoaTxt.TabIndex = 22;
+            this.tenKhoaTxt.Text = "Sinh Viên Khoa";
+            // 
             // SinhVienForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 589);
+            this.Controls.Add(this.tenKhoaTxt);
+            this.Controls.Add(this.textBoxLop);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.updateBtn);
@@ -222,10 +235,8 @@
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.radioBNu);
             this.Controls.Add(this.radioBNam);
-            this.Controls.Add(this.textBoxMaK);
             this.Controls.Add(this.textBoxTenSV);
             this.Controls.Add(this.textBoxMaSV);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -247,10 +258,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxMaSV;
         private System.Windows.Forms.TextBox textBoxTenSV;
-        private System.Windows.Forms.TextBox textBoxMaK;
         private System.Windows.Forms.RadioButton radioBNam;
         private System.Windows.Forms.RadioButton radioBNu;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
@@ -259,6 +268,9 @@
         private System.Windows.Forms.Button updateBtn;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBoxLop;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label tenKhoaTxt;
     }
 }
 

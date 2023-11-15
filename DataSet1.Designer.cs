@@ -338,6 +338,8 @@ namespace WindowsFormsApp2 {
             
             private global::System.Data.DataColumn columnTenKhoa;
             
+            private global::System.Data.DataColumn columnNamHoc;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DS_HoaDon_1DataTable() {
@@ -469,6 +471,14 @@ namespace WindowsFormsApp2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NamHocColumn {
+                get {
+                    return this.columnNamHoc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -504,7 +514,7 @@ namespace WindowsFormsApp2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DS_HoaDon_1Row AddDS_HoaDon_1Row(string MaHD, string MaSV, string TenSV, System.DateTime NgayLap, int HocKy, string TrangThai, int TongSoTin, double MienGiam, double TongSoTien, double ThanhTien, string Lop, string TenKhoa) {
+            public DS_HoaDon_1Row AddDS_HoaDon_1Row(string MaHD, string MaSV, string TenSV, System.DateTime NgayLap, int HocKy, string TrangThai, int TongSoTin, double MienGiam, double TongSoTien, double ThanhTien, string Lop, string TenKhoa, string NamHoc) {
                 DS_HoaDon_1Row rowDS_HoaDon_1Row = ((DS_HoaDon_1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MaHD,
@@ -518,7 +528,8 @@ namespace WindowsFormsApp2 {
                         TongSoTien,
                         ThanhTien,
                         Lop,
-                        TenKhoa};
+                        TenKhoa,
+                        NamHoc};
                 rowDS_HoaDon_1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDS_HoaDon_1Row);
                 return rowDS_HoaDon_1Row;
@@ -553,6 +564,7 @@ namespace WindowsFormsApp2 {
                 this.columnThanhTien = base.Columns["ThanhTien"];
                 this.columnLop = base.Columns["Lop"];
                 this.columnTenKhoa = base.Columns["TenKhoa"];
+                this.columnNamHoc = base.Columns["NamHoc"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -582,6 +594,8 @@ namespace WindowsFormsApp2 {
                 base.Columns.Add(this.columnLop);
                 this.columnTenKhoa = new global::System.Data.DataColumn("TenKhoa", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTenKhoa);
+                this.columnNamHoc = new global::System.Data.DataColumn("NamHoc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNamHoc);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -750,6 +764,8 @@ namespace WindowsFormsApp2 {
             private global::System.Data.DataColumn columnSotin;
             
             private global::System.Data.DataColumn columnSotien1tin;
+            
+            private global::System.Data.DataColumn columnNamHoc;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -930,6 +946,14 @@ namespace WindowsFormsApp2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NamHocColumn {
+                get {
+                    return this.columnNamHoc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -983,7 +1007,8 @@ namespace WindowsFormsApp2 {
                         string MaBM, 
                         string TenBM, 
                         int Sotin, 
-                        string Sotien1tin) {
+                        string Sotien1tin, 
+                        string NamHoc) {
                 DS_ChiTietHoaDonRow rowDS_ChiTietHoaDonRow = ((DS_ChiTietHoaDonRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MaHD,
@@ -1003,7 +1028,8 @@ namespace WindowsFormsApp2 {
                         MaBM,
                         TenBM,
                         Sotin,
-                        Sotien1tin};
+                        Sotien1tin,
+                        NamHoc};
                 rowDS_ChiTietHoaDonRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDS_ChiTietHoaDonRow);
                 return rowDS_ChiTietHoaDonRow;
@@ -1044,6 +1070,7 @@ namespace WindowsFormsApp2 {
                 this.columnTenBM = base.Columns["TenBM"];
                 this.columnSotin = base.Columns["Sotin"];
                 this.columnSotien1tin = base.Columns["Sotien1tin"];
+                this.columnNamHoc = base.Columns["NamHoc"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1085,6 +1112,8 @@ namespace WindowsFormsApp2 {
                 base.Columns.Add(this.columnSotin);
                 this.columnSotien1tin = new global::System.Data.DataColumn("Sotien1tin", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSotien1tin);
+                this.columnNamHoc = new global::System.Data.DataColumn("NamHoc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNamHoc);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1419,6 +1448,22 @@ namespace WindowsFormsApp2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string NamHoc {
+                get {
+                    try {
+                        return ((string)(this[this.tableDS_HoaDon_1.NamHocColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NamHoc\' in table \'DS_HoaDon_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDS_HoaDon_1.NamHocColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsMaHDNull() {
                 return this.IsNull(this.tableDS_HoaDon_1.MaHDColumn);
             }
@@ -1559,6 +1604,18 @@ namespace WindowsFormsApp2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTenKhoaNull() {
                 this[this.tableDS_HoaDon_1.TenKhoaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNamHocNull() {
+                return this.IsNull(this.tableDS_HoaDon_1.NamHocColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNamHocNull() {
+                this[this.tableDS_HoaDon_1.NamHocColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1866,6 +1923,22 @@ namespace WindowsFormsApp2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string NamHoc {
+                get {
+                    try {
+                        return ((string)(this[this.tableDS_ChiTietHoaDon.NamHocColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NamHoc\' in table \'DS_ChiTietHoaDon\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDS_ChiTietHoaDon.NamHocColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsMaHDNull() {
                 return this.IsNull(this.tableDS_ChiTietHoaDon.MaHDColumn);
             }
@@ -2078,6 +2151,18 @@ namespace WindowsFormsApp2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetSotien1tinNull() {
                 this[this.tableDS_ChiTietHoaDon.Sotien1tinColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNamHocNull() {
+                return this.IsNull(this.tableDS_ChiTietHoaDon.NamHocColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNamHocNull() {
+                this[this.tableDS_ChiTietHoaDon.NamHocColumn] = global::System.Convert.DBNull;
             }
         }
         

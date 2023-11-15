@@ -38,9 +38,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.monHocNumberPicker = new System.Windows.Forms.NumericUpDown();
             this.monHocTable = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.tenKhoaTxt = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.monHocNumberPicker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.monHocTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +62,7 @@
             this.deleteBtn.TabIndex = 58;
             this.deleteBtn.Text = "Xóa";
             this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // updateBtn
             // 
@@ -70,6 +72,7 @@
             this.updateBtn.TabIndex = 57;
             this.updateBtn.Text = "Sửa";
             this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // addBtn
             // 
@@ -118,11 +121,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(489, 30);
+            this.label1.Location = new System.Drawing.Point(381, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 16);
+            this.label1.Size = new System.Drawing.Size(61, 16);
             this.label1.TabIndex = 51;
-            this.label1.Text = "Môn học";
+            this.label1.Text = "Môn học:";
             // 
             // label4
             // 
@@ -133,12 +136,12 @@
             this.label4.TabIndex = 60;
             this.label4.Text = "Số Tín Chỉ";
             // 
-            // numericUpDown1
+            // monHocNumberPicker
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(192, 216);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 63;
+            this.monHocNumberPicker.Location = new System.Drawing.Point(192, 216);
+            this.monHocNumberPicker.Name = "monHocNumberPicker";
+            this.monHocNumberPicker.Size = new System.Drawing.Size(120, 22);
+            this.monHocNumberPicker.TabIndex = 63;
             // 
             // monHocTable
             // 
@@ -152,14 +155,25 @@
             this.monHocTable.RowTemplate.Height = 24;
             this.monHocTable.Size = new System.Drawing.Size(449, 487);
             this.monHocTable.TabIndex = 64;
+            this.monHocTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.monHocTable_CellClick);
+            // 
+            // tenKhoaTxt
+            // 
+            this.tenKhoaTxt.AutoSize = true;
+            this.tenKhoaTxt.Location = new System.Drawing.Point(448, 24);
+            this.tenKhoaTxt.Name = "tenKhoaTxt";
+            this.tenKhoaTxt.Size = new System.Drawing.Size(58, 16);
+            this.tenKhoaTxt.TabIndex = 65;
+            this.tenKhoaTxt.Text = "Môn học";
             // 
             // MonHocForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 589);
+            this.Controls.Add(this.tenKhoaTxt);
             this.Controls.Add(this.monHocTable);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.monHocNumberPicker);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.deleteBtn);
@@ -173,7 +187,7 @@
             this.Name = "MonHocForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MonHoc_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monHocNumberPicker)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.monHocTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -192,7 +206,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown monHocNumberPicker;
         private System.Windows.Forms.DataGridView monHocTable;
+        private System.Windows.Forms.Label tenKhoaTxt;
     }
 }

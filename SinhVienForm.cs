@@ -40,6 +40,7 @@ namespace WindowsFormsApp2
 
         private void SinhVienForm_Load(object sender, EventArgs e)
         {
+            tenKhoaTxt.Text = tenKhoa;
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
 
@@ -93,8 +94,6 @@ namespace WindowsFormsApp2
                 DataSet dataset = new DataSet();
                 dataAdapter.Fill(dataset);
                 DataTable dataTable = dataset.Tables["SinhVien"];
-
-
                 sinhVienTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 sinhVienTable.Width = this.Width;
                 sinhVienTable.DataSource = dataTable;
@@ -106,9 +105,9 @@ namespace WindowsFormsApp2
         private void addBtn_Click(object sender, EventArgs e)
         {
             bool gioiTinh = true;
-            string maSV, tenSV, maKhoa;
-            maKhoa = textBoxMaK.Text;
-            maSV = textBoxMaSV.Text;
+            string maSV, tenSV;
+            
+            maSV = textBoxMaSV.Text.ToString();
             tenSV = textBoxTenSV.Text;
             CultureInfo provider = CultureInfo.InvariantCulture;
             DateTime NgaySinh = DateTime.ParseExact(dateTimePicker.Value.ToString("dd/MM/yyyy"), "dd/MM/yyyy", provider);
@@ -129,25 +128,16 @@ namespace WindowsFormsApp2
                 connection.Open();
                 using (SqlCommand command = connection.CreateCommand())
                 {
-
-                    try
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.CommandText = "INSERT_SV";
-                        command.Parameters.Add(new SqlParameter("@maSV", maSV));
-                        command.Parameters.Add(new SqlParameter("@TenSV", tenSV));
-                        command.Parameters.Add(new SqlParameter("@GT", gioiTinh));
-                        command.Parameters.Add(new SqlParameter("@Ns", NgaySinh));
-                        command.Parameters.Add(new SqlParameter("@Mak", maKhoa));
-                        command.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "INSERT_SV";
+                    command.Parameters.Add(new SqlParameter("@maSV", maSV));
+                    command.Parameters.Add(new SqlParameter("@TenSV", tenSV));
+                    command.Parameters.Add(new SqlParameter("@GT", gioiTinh));
+                    command.Parameters.Add(new SqlParameter("@Ns", NgaySinh));
+                    command.Parameters.Add(new SqlParameter("@Mak", maKhoa));
+                    command.Parameters.Add(new SqlParameter("@Lop", textBoxLop.Text));
+                    command.ExecuteNonQuery();
                 }
-
             }
 
             updateTable();
@@ -160,7 +150,7 @@ namespace WindowsFormsApp2
             int row = e.RowIndex;
             textBoxMaSV.Text = sinhVienTable.Rows[row].Cells["Mã Sinh Viên"].Value.ToString();
             textBoxTenSV.Text = sinhVienTable.Rows[row].Cells["Tên Sinh Viên"].Value.ToString();
-            textBoxMaK.Text = sinhVienTable.Rows[row].Cells["Mã Khoa"].Value.ToString();
+            textBoxLop.Text = sinhVienTable.Rows[row].Cells["Lớp"].Value.ToString();
 
 
             if (sinhVienTable.Rows[row].Cells["Giới Tính"].Value.ToString().Equals("Nam"))
@@ -182,8 +172,8 @@ namespace WindowsFormsApp2
         private void updateBtn_Click(object sender, EventArgs e)
         {
             bool gioiTinh = true;
-            string maSV, tenSV, maKhoa;
-            maKhoa = textBoxMaK.Text;
+            string maSV, tenSV, lopHC;
+            lopHC = textBoxLop.Text;
             maSV = textBoxMaSV.Text;
             tenSV = textBoxTenSV.Text;
             CultureInfo provider = CultureInfo.InvariantCulture;
@@ -208,20 +198,14 @@ namespace WindowsFormsApp2
 
                 using (SqlCommand command = connection.CreateCommand())
                 {
-
-
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "UPDATE_SV";
-                    
-
                     command.Parameters.Add(new SqlParameter("@maSV", maSV));
                     command.Parameters.Add(new SqlParameter("@TenSV", tenSV));
                     command.Parameters.Add(new SqlParameter("@GT", gioiTinh));
                     command.Parameters.Add(new SqlParameter("@Ns", NgaySinh));
-                    command.Parameters.Add(new SqlParameter("@Mak", maKhoa));
-
+                    command.Parameters.Add(new SqlParameter("@Lop", lopHC));
                     command.ExecuteNonQuery();
-
                 }
             }
             updateTable();

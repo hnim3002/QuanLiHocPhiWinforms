@@ -53,22 +53,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietHoaDonFormEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTietHoaDonFormEdit.Designer.cs">
+      <DependentUpon>ChiTietHoaDonFormEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChiTietHoaDonFormXem.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChiTietHoaDonFormXem.Designer.cs">
       <DependentUpon>ChiTietHoaDonFormXem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChiTietHoaDonFormView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChiTietHoaDonFormView.Designer.cs">
-      <DependentUpon>ChiTietHoaDonFormView.cs</DependentUpon>
-    </Compile>
     <Compile Include="ChiTietHoaDonReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ChiTietHoaDonReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ChiTietHoaDonReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTietHoaDonReportViewer.Designer.cs">
+      <DependentUpon>ChiTietHoaDonReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport2.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataProvider.cs" />
@@ -148,15 +160,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChiTietHoaDonFormEdit.resx">
+      <DependentUpon>ChiTietHoaDonFormEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChiTietHoaDonFormXem.resx">
       <DependentUpon>ChiTietHoaDonFormXem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChiTietHoaDonFormView.resx">
-      <DependentUpon>ChiTietHoaDonFormView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChiTietHoaDonReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ChiTietHoaDonReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChiTietHoaDonReportViewer.resx">
+      <DependentUpon>ChiTietHoaDonReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport2.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="HoaDonReoportFormView.resx">
       <DependentUpon>HoaDonReoportFormView.cs</DependentUpon>

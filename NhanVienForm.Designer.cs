@@ -32,10 +32,8 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.radioBNu = new System.Windows.Forms.RadioButton();
             this.radioBNam = new System.Windows.Forms.RadioButton();
-            this.textBoxMaK = new System.Windows.Forms.TextBox();
             this.textBoxTenNV = new System.Windows.Forms.TextBox();
             this.textBoxMaNV = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,17 +45,18 @@
             this.updateBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
             this.nhanVienTable = new System.Windows.Forms.DataGridView();
+            this.tenKhoaTxt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienTable)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(482, 19);
+            this.label1.Location = new System.Drawing.Point(340, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.Size = new System.Drawing.Size(106, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.label1.Text = "Nhân Viên Khoa:";
             // 
             // dateTimePicker
             // 
@@ -88,13 +87,6 @@
             this.radioBNam.Text = "Nam";
             this.radioBNam.UseVisualStyleBackColor = true;
             // 
-            // textBoxMaK
-            // 
-            this.textBoxMaK.Location = new System.Drawing.Point(223, 170);
-            this.textBoxMaK.Name = "textBoxMaK";
-            this.textBoxMaK.Size = new System.Drawing.Size(205, 22);
-            this.textBoxMaK.TabIndex = 22;
-            // 
             // textBoxTenNV
             // 
             this.textBoxTenNV.Location = new System.Drawing.Point(223, 128);
@@ -109,15 +101,6 @@
             this.textBoxMaNV.Name = "textBoxMaNV";
             this.textBoxMaNV.Size = new System.Drawing.Size(205, 22);
             this.textBoxMaNV.TabIndex = 20;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(126, 173);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 16);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Mã Khoa";
             // 
             // label5
             // 
@@ -223,12 +206,23 @@
             this.nhanVienTable.RowTemplate.Height = 24;
             this.nhanVienTable.Size = new System.Drawing.Size(1034, 244);
             this.nhanVienTable.TabIndex = 33;
+            this.nhanVienTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.nhanVienTable_CellClick);
+            // 
+            // tenKhoaTxt
+            // 
+            this.tenKhoaTxt.AutoSize = true;
+            this.tenKhoaTxt.Location = new System.Drawing.Point(452, 22);
+            this.tenKhoaTxt.Name = "tenKhoaTxt";
+            this.tenKhoaTxt.Size = new System.Drawing.Size(103, 16);
+            this.tenKhoaTxt.TabIndex = 34;
+            this.tenKhoaTxt.Text = "Nhân Viên Khoa";
             // 
             // NhanVienForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 589);
+            this.Controls.Add(this.tenKhoaTxt);
             this.Controls.Add(this.nhanVienTable);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.deleteBtn);
@@ -239,10 +233,8 @@
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.radioBNu);
             this.Controls.Add(this.radioBNam);
-            this.Controls.Add(this.textBoxMaK);
             this.Controls.Add(this.textBoxTenNV);
             this.Controls.Add(this.textBoxMaNV);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -264,10 +256,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.RadioButton radioBNu;
         private System.Windows.Forms.RadioButton radioBNam;
-        private System.Windows.Forms.TextBox textBoxMaK;
         private System.Windows.Forms.TextBox textBoxTenNV;
         private System.Windows.Forms.TextBox textBoxMaNV;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -279,5 +269,6 @@
         private System.Windows.Forms.Button updateBtn;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.DataGridView nhanVienTable;
+        private System.Windows.Forms.Label tenKhoaTxt;
     }
 }

@@ -31,11 +31,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxNamHoc = new System.Windows.Forms.TextBox();
             this.textBoxLop = new System.Windows.Forms.TextBox();
-            this.textBoxTenKhoa = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.trangThaiOption = new System.Windows.Forms.ComboBox();
             this.hocKyOption = new System.Windows.Forms.ComboBox();
             this.backBtn = new System.Windows.Forms.Button();
@@ -67,14 +65,6 @@
             this.textBoxLop.Size = new System.Drawing.Size(205, 22);
             this.textBoxLop.TabIndex = 52;
             // 
-            // textBoxTenKhoa
-            // 
-            this.textBoxTenKhoa.Cursor = System.Windows.Forms.Cursors.HSplit;
-            this.textBoxTenKhoa.Location = new System.Drawing.Point(172, 65);
-            this.textBoxTenKhoa.Name = "textBoxTenKhoa";
-            this.textBoxTenKhoa.Size = new System.Drawing.Size(205, 22);
-            this.textBoxTenKhoa.TabIndex = 51;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -102,18 +92,9 @@
             this.label3.TabIndex = 47;
             this.label3.Text = "Lớp";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(75, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 16);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "Khoa";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // trangThaiOption
             // 
+            this.trangThaiOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.trangThaiOption.FormattingEnabled = true;
             this.trangThaiOption.Items.AddRange(new object[] {
             "Đã Nộp",
@@ -126,6 +107,7 @@
             // 
             // hocKyOption
             // 
+            this.hocKyOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.hocKyOption.FormattingEnabled = true;
             this.hocKyOption.Items.AddRange(new object[] {
             "1",
@@ -182,11 +164,9 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBoxNamHoc);
             this.Controls.Add(this.textBoxLop);
-            this.Controls.Add(this.textBoxTenKhoa);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Name = "HoaDonReportOptionForm";
             this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -199,11 +179,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxNamHoc;
         private System.Windows.Forms.TextBox textBoxLop;
-        private System.Windows.Forms.TextBox textBoxTenKhoa;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox trangThaiOption;
         private System.Windows.Forms.ComboBox hocKyOption;
         private System.Windows.Forms.Button backBtn;

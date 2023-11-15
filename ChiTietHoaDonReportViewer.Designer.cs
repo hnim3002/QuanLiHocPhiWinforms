@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp2
 {
-    partial class ChiTietHoaDonFormView
+    partial class ChiTietHoaDonReportViewer
     {
         /// <summary>
         /// Required designer variable.
@@ -42,14 +42,14 @@
             this.crystalReportViewer1.Size = new System.Drawing.Size(800, 450);
             this.crystalReportViewer1.TabIndex = 0;
             // 
-            // ChiTietHoaDonFormView
+            // ChiTietHoaDonReportViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Name = "ChiTietHoaDonFormView";
-            this.Text = "ChiTietHoaDonFormView";
+            this.Name = "ChiTietHoaDonReportViewer";
+            this.Text = "ChiTietHoaDonReportViewer";
             this.ResumeLayout(false);
 
         }

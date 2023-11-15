@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp2
 {
-    public partial class ChiTietHoaDonFormView : Form
+    public partial class ChiTietHoaDonReportViewer : Form
     {
-        public ChiTietHoaDonFormView()
+        public ChiTietHoaDonReportViewer()
         {
             InitializeComponent();
         }

@@ -67,7 +67,7 @@ namespace WindowsFormsApp2
         private void nhanVienOpenBtn_Click(object sender, EventArgs e)
         {
             CloseAllChildForms();
-            nhanVienForm = new NhanVienForm();
+            nhanVienForm = new NhanVienForm(maKhoa, tenKhoa);
             nhanVienForm.AutoScroll = false;
             nhanVienForm.FormBorderStyle = FormBorderStyle.None;
             ResizeChildForm(nhanVienForm);
@@ -78,7 +78,7 @@ namespace WindowsFormsApp2
         private void monHocOpenBtn_Click(object sender, EventArgs e)
         {
             CloseAllChildForms();
-            monHocForm = new MonHocForm();
+            monHocForm = new MonHocForm(maKhoa, tenKhoa);
             monHocForm.AutoScroll = false;
             
             ResizeChildForm(monHocForm);
@@ -101,7 +101,7 @@ namespace WindowsFormsApp2
         private void hoaDonOpenBtn_Click(object sender, EventArgs e)
         {
             CloseAllChildForms();
-            hoaDonForm = new HoaDonForm(this);
+            hoaDonForm = new HoaDonForm(this, maKhoa, tenKhoa);
             hoaDonForm.AutoScroll = false;
             hoaDonForm.FormBorderStyle= FormBorderStyle.None;
             ResizeChildForm(hoaDonForm);
@@ -111,7 +111,7 @@ namespace WindowsFormsApp2
 
         public void openHoaDonReportOptinForm()
         {
-            hoaDonReportOptionForm = new HoaDonReportOptionForm();
+            hoaDonReportOptionForm = new HoaDonReportOptionForm(maKhoa, tenKhoa);
             hoaDonReportOptionForm.AutoScroll = false;
             hoaDonReportOptionForm.FormBorderStyle = FormBorderStyle.None;
             ResizeChildForm(hoaDonReportOptionForm);
@@ -141,7 +141,7 @@ namespace WindowsFormsApp2
         private void aToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CloseAllChildForms();
-            hoaDonReportOptionForm = new HoaDonReportOptionForm();
+            hoaDonReportOptionForm = new HoaDonReportOptionForm(maKhoa, tenKhoa);
             hoaDonReportOptionForm.AutoScroll = false;
             hoaDonReportOptionForm.FormBorderStyle = FormBorderStyle.None;
             ResizeChildForm(hoaDonReportOptionForm);

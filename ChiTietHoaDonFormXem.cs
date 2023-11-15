@@ -58,7 +58,7 @@ namespace WindowsFormsApp2
                 DateTime ngaySinh = (DateTime)dataTable.Rows[0]["Ngày Sinh"];
                 ngaySinhTxt.Text = ngaySinh.ToString("dd/MM/yyyy");
                 DateTime ngayLap = (DateTime)dataTable.Rows[0]["Ngày Lập"];
-                namHocTxt.Text = ngayLap.Year.ToString();
+                namHocTxt.Text = dataTable.Rows[0]["NamHoc"].ToString();
                 hocKyTxt.Text = dataTable.Rows[0]["Học Kỳ"].ToString();
                 mienGiamTxt.Text = dataTable.Rows[0]["MienGiam"].ToString();
                 thanhTienTxt.Text = dataTable.Rows[0]["ThanhTien"].ToString();
@@ -88,6 +88,7 @@ namespace WindowsFormsApp2
 
             using (connection)
             {
+
                 connection.Open();
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("Select_CTHD_Report", connection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -100,7 +101,7 @@ namespace WindowsFormsApp2
                 chiTietHoaDonReport.SetDataSource(dataTable);
 
 
-                ChiTietHoaDonFormView chiTietHoaDonFormView = new ChiTietHoaDonFormView();
+                ChiTietHoaDonReportViewer chiTietHoaDonFormView = new ChiTietHoaDonReportViewer();
                 chiTietHoaDonFormView.crystalReportViewer1.ReportSource = chiTietHoaDonReport;
 
                 chiTietHoaDonFormView.Show();
