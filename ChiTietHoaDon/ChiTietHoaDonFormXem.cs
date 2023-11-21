@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp2.ChiTietHoaDon;
+
 
 namespace WindowsFormsApp2
 {
@@ -40,8 +42,6 @@ namespace WindowsFormsApp2
             using (connection)
             {
                 connection.Open();
-
-
                 SqlDataAdapter dataAdapter_info = new SqlDataAdapter("Select_ChiTietHoaDon_Data", connection);
                 dataAdapter_info.TableMappings.Add("Table","ChiTietHoaDon2");
                 dataAdapter_info.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -49,11 +49,11 @@ namespace WindowsFormsApp2
                 DataSet dataset = new DataSet();
                 dataAdapter_info.Fill(dataset);
                 DataTable dataTable = dataset.Tables["ChiTietHoaDon2"];
-                maHdText.Text = dataTable.Rows[0]["Mã HĐ"].ToString();
+                maHoaDonTxt.Text = dataTable.Rows[0]["Mã HĐ"].ToString();
                 maSVTxt.Text = dataTable.Rows[0]["Mã SV"].ToString();
                 tenSVTxt.Text = dataTable.Rows[0]["Tên Sinh Viên"].ToString();
                 lopTxt.Text = dataTable.Rows[0]["Lớp"].ToString();
-                khoaTxt.Text = dataTable.Rows[0]["Khoa"].ToString();
+                
                 CultureInfo provider = CultureInfo.InvariantCulture;
                 DateTime ngaySinh = (DateTime)dataTable.Rows[0]["Ngày Sinh"];
                 ngaySinhTxt.Text = ngaySinh.ToString("dd/MM/yyyy");
@@ -62,7 +62,6 @@ namespace WindowsFormsApp2
                 hocKyTxt.Text = dataTable.Rows[0]["Học Kỳ"].ToString();
                 mienGiamTxt.Text = dataTable.Rows[0]["MienGiam"].ToString();
                 thanhTienTxt.Text = dataTable.Rows[0]["ThanhTien"].ToString();
-
                 SqlDataAdapter dataAdapter_data = new SqlDataAdapter("Select_CTHD", connection);
                 dataAdapter_data.TableMappings.Add("Table", "ChiTietHoaDon");
                 dataAdapter_data.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -72,7 +71,6 @@ namespace WindowsFormsApp2
                 DataTable dataTable2 = dataset.Tables["ChiTietHoaDon"];
                 chiTietHoaDonTable.DataSource = dataTable2;
                 chiTietHoaDonTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
             }
         }
 
@@ -88,30 +86,18 @@ namespace WindowsFormsApp2
 
             using (connection)
             {
-
                 connection.Open();
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("Select_CTHD_Report", connection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maHD", maHD));
-
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
-
                 ChiTietHoaDonReport chiTietHoaDonReport = new ChiTietHoaDonReport();
                 chiTietHoaDonReport.SetDataSource(dataTable);
-
-
-                ChiTietHoaDonReportViewer chiTietHoaDonFormView = new ChiTietHoaDonReportViewer();
+                ReportViewer chiTietHoaDonFormView = new ReportViewer();
                 chiTietHoaDonFormView.crystalReportViewer1.ReportSource = chiTietHoaDonReport;
-
                 chiTietHoaDonFormView.Show();
-
-                
-                
-
             }
         }
-
-        
     }
 }

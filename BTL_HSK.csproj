@@ -53,34 +53,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChiTietHoaDonFormEdit.cs">
+    <Compile Include="ChiTietHoaDon\ChiTietHoaDonFormXem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChiTietHoaDonFormEdit.Designer.cs">
-      <DependentUpon>ChiTietHoaDonFormEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ChiTietHoaDonFormXem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChiTietHoaDonFormXem.Designer.cs">
+    <Compile Include="ChiTietHoaDon\ChiTietHoaDonFormXem.Designer.cs">
       <DependentUpon>ChiTietHoaDonFormXem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChiTietHoaDonReport.cs">
+    <Compile Include="ChiTietHoaDon\ChiTietHoaDonReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ChiTietHoaDonReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ChiTietHoaDonReportViewer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChiTietHoaDonReportViewer.Designer.cs">
-      <DependentUpon>ChiTietHoaDonReportViewer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CrystalReport2.cs">
+    <Compile Include="SinhVien\SinhVienReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport2.rpt</DependentUpon>
+      <DependentUpon>SinhVienReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HoaDon\HoaDon_TrangThaiReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HoaDon_TrangThaiReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataProvider.cs" />
@@ -92,28 +92,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="HoaDonReportOptionForm.cs">
+    <Compile Include="HoaDon\HoaDonReportOptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HoaDonReportOptionForm.Designer.cs">
+    <Compile Include="HoaDon\HoaDonReportOptionForm.Designer.cs">
       <DependentUpon>HoaDonReportOptionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HoaDonReoportFormView.cs">
+    <Compile Include="ReportViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HoaDonReoportFormView.Designer.cs">
-      <DependentUpon>HoaDonReoportFormView.cs</DependentUpon>
+    <Compile Include="ReportViewer.Designer.cs">
+      <DependentUpon>ReportViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="HoaDon_Lop_NamHocReport.cs">
+    <Compile Include="HoaDon\HoaDon_Lop_NamHocReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HoaDon_Lop_NamHocReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="HoaDonForm.cs">
+    <Compile Include="HoaDon\HoaDonForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HoaDonForm.Designer.cs">
+    <Compile Include="HoaDon\HoaDonForm.Designer.cs">
       <DependentUpon>HoaDonForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MonHocForm.cs">
@@ -122,11 +122,11 @@
     <Compile Include="MonHocForm.Designer.cs">
       <DependentUpon>MonHocForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="KhoaForm.cs">
+    <Compile Include="LopHanhChinhForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KhoaForm.Designer.cs">
-      <DependentUpon>KhoaForm.cs</DependentUpon>
+    <Compile Include="LopHanhChinhForm.Designer.cs">
+      <DependentUpon>LopHanhChinhForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SignUp.cs">
       <SubType>Form</SubType>
@@ -146,60 +146,67 @@
     <Compile Include="HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="NhanVienForm.cs">
+    <Compile Include="NhanVien\NhanVienForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NhanVienForm.Designer.cs">
+    <Compile Include="NhanVien\NhanVienForm.Designer.cs">
       <DependentUpon>NhanVienForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SinhVienForm.cs">
+    <Compile Include="SinhVien\SinhVienForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SinhVienForm.Designer.cs">
+    <Compile Include="SinhVien\SinhVienForm.Designer.cs">
       <DependentUpon>SinhVienForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ChiTietHoaDonFormEdit.resx">
-      <DependentUpon>ChiTietHoaDonFormEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChiTietHoaDonFormXem.resx">
+    <Compile Include="SinhVien\SinhVienReportOptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SinhVien\SinhVienReportOptionForm.Designer.cs">
+      <DependentUpon>SinhVienReportOptionForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ChiTietHoaDon\ChiTietHoaDonFormXem.resx">
       <DependentUpon>ChiTietHoaDonFormXem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChiTietHoaDonReport.rpt">
+    <EmbeddedResource Include="ChiTietHoaDon\ChiTietHoaDonReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ChiTietHoaDonReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChiTietHoaDonReportViewer.resx">
-      <DependentUpon>ChiTietHoaDonReportViewer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport2.rpt">
+    <EmbeddedResource Include="SinhVien\SinhVienReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport2.cs</LastGenOutput>
+      <LastGenOutput>SinhVienReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="HoaDonReoportFormView.resx">
-      <DependentUpon>HoaDonReoportFormView.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HoaDonReportOptionForm.resx">
+    <EmbeddedResource Include="HoaDon\HoaDon_TrangThaiReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>HoaDon_TrangThaiReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewer.resx">
+      <DependentUpon>ReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HoaDon\HoaDonReportOptionForm.resx">
       <DependentUpon>HoaDonReportOptionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HoaDon_Lop_NamHocReport.rpt">
+    <EmbeddedResource Include="HoaDon\HoaDon_Lop_NamHocReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>HoaDon_Lop_NamHocReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="HoaDonForm.resx">
+    <EmbeddedResource Include="HoaDon\HoaDonForm.resx">
       <DependentUpon>HoaDonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KhoaForm.resx">
-      <DependentUpon>KhoaForm.cs</DependentUpon>
+    <EmbeddedResource Include="LopHanhChinhForm.resx">
+      <DependentUpon>LopHanhChinhForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MonHocForm.resx">
       <DependentUpon>MonHocForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NhanVienForm.resx">
+    <EmbeddedResource Include="NhanVien\NhanVienForm.resx">
       <DependentUpon>NhanVienForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
@@ -208,7 +215,7 @@
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SinhVienForm.resx">
+    <EmbeddedResource Include="SinhVien\SinhVienForm.resx">
       <DependentUpon>SinhVienForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -220,6 +227,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SinhVien\SinhVienReportOptionForm.resx">
+      <DependentUpon>SinhVienReportOptionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp2
 {
-    public partial class ChiTietHoaDonFormEdit : Form
+    public partial class ReportViewer : Form
     {
-        public ChiTietHoaDonFormEdit()
+        public ReportViewer()
         {
             InitializeComponent();
-        }
-
-        private void ChiTietHoaDonForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

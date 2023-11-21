@@ -36,7 +36,7 @@
             this.khoaOpenBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.monHocOpenBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.hoaDonOpenBtn = new System.Windows.Forms.ToolStripMenuItem();
-            this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chiTietHoaDonOpenBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,10 +55,10 @@
             this.khoaOpenBtn,
             this.monHocOpenBtn,
             this.hoaDonOpenBtn,
-            this.aToolStripMenuItem});
+            this.chiTietHoaDonOpenBtn});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1042, 28);
+            this.menuStrip2.Size = new System.Drawing.Size(1383, 28);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -79,8 +79,8 @@
             // khoaOpenBtn
             // 
             this.khoaOpenBtn.Name = "khoaOpenBtn";
-            this.khoaOpenBtn.Size = new System.Drawing.Size(57, 24);
-            this.khoaOpenBtn.Text = "Khoa";
+            this.khoaOpenBtn.Size = new System.Drawing.Size(128, 24);
+            this.khoaOpenBtn.Text = "Lớp Hành Chính";
             this.khoaOpenBtn.Click += new System.EventHandler(this.khoaOpenBtn_Click);
             // 
             // monHocOpenBtn
@@ -97,18 +97,18 @@
             this.hoaDonOpenBtn.Text = "Hóa Đơn";
             this.hoaDonOpenBtn.Click += new System.EventHandler(this.hoaDonOpenBtn_Click);
             // 
-            // aToolStripMenuItem
+            // chiTietHoaDonOpenBtn
             // 
-            this.aToolStripMenuItem.Name = "aToolStripMenuItem";
-            this.aToolStripMenuItem.Size = new System.Drawing.Size(31, 24);
-            this.aToolStripMenuItem.Text = "a";
-            this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click);
+            this.chiTietHoaDonOpenBtn.Name = "chiTietHoaDonOpenBtn";
+            this.chiTietHoaDonOpenBtn.Size = new System.Drawing.Size(137, 24);
+            this.chiTietHoaDonOpenBtn.Text = "Chi Tiết Hóa Đơn";
+            this.chiTietHoaDonOpenBtn.Click += new System.EventHandler(this.chiTietHoaDonOpenBtn_Click);
             // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1042, 628);
+            this.ClientSize = new System.Drawing.Size(1383, 769);
             this.Controls.Add(this.menuStrip2);
             this.IsMdiContainer = true;
             this.Name = "HomePage";
@@ -128,6 +128,6 @@
         private System.Windows.Forms.ToolStripMenuItem khoaOpenBtn;
         private System.Windows.Forms.ToolStripMenuItem monHocOpenBtn;
         private System.Windows.Forms.ToolStripMenuItem hoaDonOpenBtn;
-        private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem chiTietHoaDonOpenBtn;
     }
 }

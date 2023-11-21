@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp2.HoaDon;
 
 namespace WindowsFormsApp2
 {
@@ -35,14 +36,10 @@ namespace WindowsFormsApp2
         private void inBaoCaoBtn_Click(object sender, EventArgs e)
         {
 
-            var trangThai = false;
             var hocKy = 0;
-            
-            MessageBox.Show(tenKhoa);
-            string loP = textBoxLop.Text.ToString();
-            int namHoc = int.Parse(textBoxNamHoc.Text.ToString());
-
-      
+                    
+            string loP = comboBoxLop.Text.ToString();
+ 
             if (hocKyOption.Text.Equals("1"))
             {
                 hocKy = 1;
@@ -56,7 +53,7 @@ namespace WindowsFormsApp2
 
             if (trangThaiOption.Text.Equals("Chưa Nộp"))
             {
-                trangThai = false;
+                var trangThai = false;
                 using (connection)
                 {
                     connection.Open();
@@ -65,7 +62,7 @@ namespace WindowsFormsApp2
                     dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                     dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@Lop", loP));
-                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@NamHoc", namHoc));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@NamHoc", textBoxNamHoc.Text));
                     dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@Ky", hocKy));
                     dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@Khoa", tenKhoa));
                     dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@TrangThai", trangThai));
@@ -77,19 +74,19 @@ namespace WindowsFormsApp2
                     dataGridView1.Width = this.Width;
                     dataGridView1.DataSource = dataTable;
 
-                    HoaDon_Lop_NamHocReport hoaDon_Lop_NamHocReport = new HoaDon_Lop_NamHocReport();
+                    HoaDon_TrangThaiReport hoaDon_TrangThaiReport = new HoaDon_TrangThaiReport();
 
-                    hoaDon_Lop_NamHocReport.SetDataSource(dataTable);
+                    hoaDon_TrangThaiReport.SetDataSource(dataTable);
 
-                    HoaDonReoportFormView hoaDonReoportFormView = new HoaDonReoportFormView();
+                    ReportViewer hoaDonReoportFormView = new ReportViewer();
 
-                    hoaDonReoportFormView.crystalReportViewer1.ReportSource = hoaDon_Lop_NamHocReport;
+                    hoaDonReoportFormView.crystalReportViewer1.ReportSource = hoaDon_TrangThaiReport;
                     hoaDonReoportFormView.Show();
                 }
             }
             else if (trangThaiOption.Text.Equals("Đã Nộp"))
             {
-                trangThai = true;
+                var trangThai = true;
                 using (connection)
                 {
                     connection.Open();
@@ -98,7 +95,7 @@ namespace WindowsFormsApp2
                     dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                     dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@Lop", loP));
-                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@NamHoc", namHoc));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@NamHoc", textBoxNamHoc.Text));
                     dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@Ky", hocKy));
                     dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@Khoa", tenKhoa));
                     dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@TrangThai", trangThai));
@@ -110,18 +107,19 @@ namespace WindowsFormsApp2
                     dataGridView1.Width = this.Width;
                     dataGridView1.DataSource = dataTable;
 
-                    HoaDon_Lop_NamHocReport hoaDon_Lop_NamHocReport = new HoaDon_Lop_NamHocReport();
+                    HoaDon_TrangThaiReport hoaDon_TrangThaiReport = new HoaDon_TrangThaiReport();
 
-                    hoaDon_Lop_NamHocReport.SetDataSource(dataTable);
+                    hoaDon_TrangThaiReport.SetDataSource(dataTable);
 
-                    HoaDonReoportFormView hoaDonReoportFormView = new HoaDonReoportFormView();
+                    ReportViewer hoaDonReoportFormView = new ReportViewer();
 
-                    hoaDonReoportFormView.crystalReportViewer1.ReportSource = hoaDon_Lop_NamHocReport;
+                    hoaDonReoportFormView.crystalReportViewer1.ReportSource = hoaDon_TrangThaiReport;
                     hoaDonReoportFormView.Show();
                 }
             }
             else
             {
+      
                 using (connection)
                 {
                     connection.Open();
@@ -130,7 +128,7 @@ namespace WindowsFormsApp2
                     dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                     dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@Lop", loP));
-                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@NamHoc", namHoc));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@NamHoc", textBoxNamHoc.Text));
                     dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@Ky", hocKy));
                     dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@Khoa", tenKhoa));
 
@@ -145,23 +143,40 @@ namespace WindowsFormsApp2
 
                     hoaDon_Lop_NamHocReport.SetDataSource(dataTable);
 
-                    HoaDonReoportFormView hoaDonReoportFormView = new HoaDonReoportFormView();
+                    ReportViewer hoaDonReoportFormView = new ReportViewer();
 
                     hoaDonReoportFormView.crystalReportViewer1.ReportSource = hoaDon_Lop_NamHocReport;
                     hoaDonReoportFormView.Show();
                 }
-            }
-
-
-
-            
-
-            
+            }     
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void HoaDonReportOptionForm_Load(object sender, EventArgs e)
+        {
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+
+            using (connection)
+            {
+                connection.Open();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("Select_TenLop", connection);
+                dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    comboBoxLop.Items.Add(row["Lop"]);
+                }
+
+            }
+
         }
     }
 }

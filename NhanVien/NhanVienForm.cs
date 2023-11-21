@@ -13,16 +13,13 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp2
 {
-    public partial class SinhVienForm : Form
+    public partial class NhanVienForm : Form
     {
         private string maKhoa;
         private string tenKhoa;
-
-        public SinhVienForm(string maKhoa, string tenKhoa)
+        public NhanVienForm(string maKhoa, string tenKhoa)
         {
             InitializeComponent();
-            this.maKhoa = maKhoa;
-            this.tenKhoa = tenKhoa;
             AutoScaleMode = AutoScaleMode.Inherit;
 
             // Set the Dock property to Fill.
@@ -31,84 +28,75 @@ namespace WindowsFormsApp2
             // Set the Anchor property to Top, Bottom, Left, and Right.
             Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 
-            FormClosing += ChildForm_FormClosing;
-
+            this.maKhoa = maKhoa;
+            this.tenKhoa = tenKhoa;
 
         }
 
-       
+        
 
-        private void SinhVienForm_Load(object sender, EventArgs e)
+
+
+        private void NhanVienForm_Load(object sender, EventArgs e)
         {
-            tenKhoaTxt.Text = tenKhoa;
             SqlConnection connection = new SqlConnection();
+
+
             connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
 
             using (connection)
             {
                 connection.Open();
-                SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT_SV", connection);
+
+
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT_NV", connection);
                 dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
-                dataAdapter.TableMappings.Add("Table", "SinhVien");
+                dataAdapter.TableMappings.Add("Table", "NhanVien");
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                 DataSet dataset = new DataSet();
                 dataAdapter.Fill(dataset);
-                DataTable dataTable = dataset.Tables["SinhVien"];
+                DataTable dataTable = dataset.Tables["NhanVien"];
 
-
-                sinhVienTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                sinhVienTable.Width = this.Width;
-                sinhVienTable.DataSource = dataTable;
+                nhanVienTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                
+                nhanVienTable.DataSource = dataTable;
 
             }
-
-
         }
 
-        //private void pollingTimer_Tick(object sender, EventArgs e)
-        //{
-        //    // Truy vấn database để lấy dữ liệu mới
-        //    DataTable dataTable = GetNewDataFromDatabase();
-
-        //    // Cập nhật DataGridView với dữ liệu mới
-        //    sinhVienTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        //    sinhVienTable.Width = this.Width;
-        //    sinhVienTable.DataSource = dataTable;
-        //}
-
-       
         private void updateTable()
         {
             SqlConnection connection = new SqlConnection();
+
+
             connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
 
             using (connection)
             {
                 connection.Open();
-                SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT_SV", connection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT_NV", connection);
                 dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
-                dataAdapter.TableMappings.Add("Table", "SinhVien");
+                dataAdapter.TableMappings.Add("Table", "NhanVien");
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                 DataSet dataset = new DataSet();
                 dataAdapter.Fill(dataset);
-                DataTable dataTable = dataset.Tables["SinhVien"];
-                sinhVienTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                sinhVienTable.Width = this.Width;
-                sinhVienTable.DataSource = dataTable;
+                DataTable dataTable = dataset.Tables["NhanVien"];
+
+                nhanVienTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                nhanVienTable.DataSource = dataTable;
 
             }
         }
 
+  
 
         private void addBtn_Click(object sender, EventArgs e)
         {
             bool gioiTinh = true;
-            string maSV, tenSV;
-            
-            maSV = textBoxMaSV.Text.ToString();
-            tenSV = textBoxTenSV.Text;
+         
             CultureInfo provider = CultureInfo.InvariantCulture;
             DateTime NgaySinh = DateTime.ParseExact(dateTimePicker.Value.ToString("dd/MM/yyyy"), "dd/MM/yyyy", provider);
             if (radioBNam.Checked)
@@ -129,13 +117,13 @@ namespace WindowsFormsApp2
                 using (SqlCommand command = connection.CreateCommand())
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = "INSERT_SV";
-                    command.Parameters.Add(new SqlParameter("@maSV", maSV));
-                    command.Parameters.Add(new SqlParameter("@TenSV", tenSV));
+                    command.CommandText = "insert_NV";
+                    command.Parameters.Add(new SqlParameter("@manv", textBoxMaNV.Text));
+                    command.Parameters.Add(new SqlParameter("@tenNV", textBoxTenNV.Text));
+                    command.Parameters.Add(new SqlParameter("@Nsinh", NgaySinh));
                     command.Parameters.Add(new SqlParameter("@GT", gioiTinh));
-                    command.Parameters.Add(new SqlParameter("@Ns", NgaySinh));
-                    command.Parameters.Add(new SqlParameter("@Mak", maKhoa));
-                    command.Parameters.Add(new SqlParameter("@Lop", textBoxLop.Text));
+                    command.Parameters.Add(new SqlParameter("@CMND", textBoxCCCD.Text));
+
                     command.ExecuteNonQuery();
                 }
             }
@@ -143,17 +131,77 @@ namespace WindowsFormsApp2
             updateTable();
         }
 
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            bool gioiTinh = true;
+            
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            DateTime NgaySinh = DateTime.ParseExact(dateTimePicker.Value.ToString("dd/MM/yyyy"), "dd/MM/yyyy", provider);
+            if (radioBNam.Checked)
+            {
+                gioiTinh = true;
+            }
+            else if (radioBNu.Checked)
+            {
+                gioiTinh = false;
+            }
+
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+
+            using (connection)
+            {
+                connection.Open();
+
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "update_NV";
+                    command.Parameters.Add(new SqlParameter("@manv", textBoxMaNV.Text));
+                    command.Parameters.Add(new SqlParameter("@tenNV", textBoxTenNV.Text));
+                    command.Parameters.Add(new SqlParameter("@Nsinh", NgaySinh));
+                    command.Parameters.Add(new SqlParameter("@GT", gioiTinh));
+                    command.Parameters.Add(new SqlParameter("@CMND", textBoxCCCD.Text));
+                    command.ExecuteNonQuery();
+                }
+            }
+            updateTable();
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+           
+            SqlConnection connection = new SqlConnection();
+
+
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+
+            using (connection)
+            {
+                connection.Open();
+
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "delete_SV";
+                    command.Parameters.Add(new SqlParameter("@ma", textBoxMaNV.Text));
+                    command.ExecuteNonQuery();
+                }
+            }
+            updateTable();
+        }
+
         
 
-        private void sinhVienTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void nhanVienTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int row = e.RowIndex;
-            textBoxMaSV.Text = sinhVienTable.Rows[row].Cells["Mã Sinh Viên"].Value.ToString();
-            textBoxTenSV.Text = sinhVienTable.Rows[row].Cells["Tên Sinh Viên"].Value.ToString();
-            textBoxLop.Text = sinhVienTable.Rows[row].Cells["Lớp"].Value.ToString();
+            textBoxMaNV.Text = nhanVienTable.Rows[row].Cells["Mã Nhân Viên"].Value.ToString();
+            textBoxTenNV.Text = nhanVienTable.Rows[row].Cells["Tên Nhân Viên"].Value.ToString();
+            textBoxCCCD.Text = nhanVienTable.Rows[row].Cells["CMND"].Value.ToString();
 
 
-            if (sinhVienTable.Rows[row].Cells["Giới Tính"].Value.ToString().Equals("Nam"))
+            if (nhanVienTable.Rows[row].Cells["Giới Tính"].Value.ToString().Equals("Nam"))
             {
                 radioBNam.Checked = true;
             }
@@ -163,94 +211,44 @@ namespace WindowsFormsApp2
             }
 
 
-            CultureInfo provider = CultureInfo.InvariantCulture;
-            DateTime NgaySinh = (DateTime)sinhVienTable.Rows[row].Cells["Ngày Sinh"].Value;
+            
+            DateTime NgaySinh = (DateTime)nhanVienTable.Rows[row].Cells["Ngày Sinh"].Value;
 
             dateTimePicker.Value = NgaySinh;
         }
 
-        private void updateBtn_Click(object sender, EventArgs e)
+        private void showAllBtn_Click(object sender, EventArgs e)
         {
-            bool gioiTinh = true;
-            string maSV, tenSV, lopHC;
-            lopHC = textBoxLop.Text;
-            maSV = textBoxMaSV.Text;
-            tenSV = textBoxTenSV.Text;
-            CultureInfo provider = CultureInfo.InvariantCulture;
-            DateTime NgaySinh = DateTime.ParseExact(dateTimePicker.Value.ToString("dd/MM/yyyy"), "dd/MM/yyyy", provider);
-            if (radioBNam.Checked)
-            {
-                gioiTinh = true;
-            }
-            else if (radioBNu.Checked)
-            {
-                gioiTinh = false;
-            }
-
-            SqlConnection connection = new SqlConnection();
-
-
-            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
-
-            using (connection)
-            {
-                connection.Open();
-
-                using (SqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = "UPDATE_SV";
-                    command.Parameters.Add(new SqlParameter("@maSV", maSV));
-                    command.Parameters.Add(new SqlParameter("@TenSV", tenSV));
-                    command.Parameters.Add(new SqlParameter("@GT", gioiTinh));
-                    command.Parameters.Add(new SqlParameter("@Ns", NgaySinh));
-                    command.Parameters.Add(new SqlParameter("@Lop", lopHC));
-                    command.ExecuteNonQuery();
-                }
-            }
             updateTable();
         }
 
-        private void deleteBtn_Click(object sender, EventArgs e)
+        private void searchBtn_Click(object sender, EventArgs e)
         {
-            string maSV;
-            maSV = textBoxMaSV.Text;
-            SqlConnection connection = new SqlConnection();
-
-
-            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
-
-            using (connection)
+            if (!string.IsNullOrEmpty(searchMaNV.Text))
             {
-                connection.Open();
+                SqlConnection connection = new SqlConnection();
+                connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
 
-                using (SqlCommand command = connection.CreateCommand())
+                using (connection)
                 {
-
-
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = "delete_SV";
-
-
-                    command.Parameters.Add(new SqlParameter("@ma", maSV));
-
-
-                    command.ExecuteNonQuery();
-
-            
+                    connection.Open();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("Search_NV_MaNV", connection);
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maSV", searchMaNV.Text));
+                    dataAdapter.TableMappings.Add("Table", "SinhVien");
+                    dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    DataSet dataset = new DataSet();
+                    dataAdapter.Fill(dataset);
+                    DataTable dataTable = dataset.Tables["SinhVien"];
+                    nhanVienTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    nhanVienTable.DataSource = dataTable;
                 }
             }
-            updateTable();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void baoCaoBtn_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void ChildForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Dispose();
         }
     }
 }

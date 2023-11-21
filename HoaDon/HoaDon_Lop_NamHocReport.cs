@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsApp2 {
+namespace WindowsFormsApp2.HoaDon {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -41,7 +41,7 @@ namespace WindowsFormsApp2 {
         
         public override string FullResourceName {
             get {
-                return "WindowsFormsApp2.HoaDon_Lop_NamHocReport.rpt";
+                return "WindowsFormsApp2.HoaDon.HoaDon_Lop_NamHocReport.rpt";
             }
             set {
                 // Do nothing

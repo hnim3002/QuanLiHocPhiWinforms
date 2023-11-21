@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsApp2 {
+namespace WindowsFormsApp2.ChiTietHoaDon {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace WindowsFormsApp2 {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalReport2 : ReportClass {
+    public class ChiTietHoaDonReport : ReportClass {
         
-        public CrystalReport2() {
+        public ChiTietHoaDonReport() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalReport2.rpt";
+                return "ChiTietHoaDonReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace WindowsFormsApp2 {
         
         public override string FullResourceName {
             get {
-                return "WindowsFormsApp2.CrystalReport2.rpt";
+                return "WindowsFormsApp2.ChiTietHoaDon.ChiTietHoaDonReport.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace WindowsFormsApp2 {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalReport2 : Component, ICachedReport {
+    public class CachedChiTietHoaDonReport : Component, ICachedReport {
         
-        public CachedCrystalReport2() {
+        public CachedChiTietHoaDonReport() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace WindowsFormsApp2 {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalReport2 rpt = new CrystalReport2();
+            ChiTietHoaDonReport rpt = new ChiTietHoaDonReport();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsApp2 {
+namespace WindowsFormsApp2.HoaDon {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace WindowsFormsApp2 {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ChiTietHoaDonReport : ReportClass {
+    public class HoaDon_TrangThaiReport : ReportClass {
         
-        public ChiTietHoaDonReport() {
+        public HoaDon_TrangThaiReport() {
         }
         
         public override string ResourceName {
             get {
-                return "ChiTietHoaDonReport.rpt";
+                return "HoaDon_TrangThaiReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace WindowsFormsApp2 {
         
         public override string FullResourceName {
             get {
-                return "WindowsFormsApp2.ChiTietHoaDonReport.rpt";
+                return "WindowsFormsApp2.HoaDon.HoaDon_TrangThaiReport.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace WindowsFormsApp2 {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedChiTietHoaDonReport : Component, ICachedReport {
+    public class CachedHoaDon_TrangThaiReport : Component, ICachedReport {
         
-        public CachedChiTietHoaDonReport() {
+        public CachedHoaDon_TrangThaiReport() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace WindowsFormsApp2 {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ChiTietHoaDonReport rpt = new ChiTietHoaDonReport();
+            HoaDon_TrangThaiReport rpt = new HoaDon_TrangThaiReport();
             rpt.Site = this.Site;
             return rpt;
         }

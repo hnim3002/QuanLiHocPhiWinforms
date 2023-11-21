@@ -17,10 +17,12 @@ namespace WindowsFormsApp2
         private SinhVienForm sinhVienForm;
         private NhanVienForm nhanVienForm;
         private MonHocForm monHocForm;
-        private KhoaForm khoaForm;
+        private LopHanhChinhForm khoaForm;
         private HoaDonForm hoaDonForm;
         private HoaDonReportOptionForm hoaDonReportOptionForm;
         private ChiTietHoaDonFormXem chiTietHoaDonForm;
+        private SinhVienReportOptionForm sinhVienReportOptionForm;
+        
 
 
         public HomePage(string maKhoa, string tenKhoa)
@@ -28,11 +30,16 @@ namespace WindowsFormsApp2
             InitializeComponent();
             this.maKhoa = maKhoa;
             this.tenKhoa = tenKhoa;
+            this.AutoScroll = false;
+           
         }
 
         private void ResizeChildForm(Form childForm)
         {
-            childForm.Size = new Size(this.ClientSize.Width, this.ClientSize.Height);
+           
+            childForm.Size = new Size(this.ClientSize.Width - 4, this.ClientSize.Height-28);
+            
+
         }
 
 
@@ -46,18 +53,19 @@ namespace WindowsFormsApp2
             ResizeChildForm(hoaDonForm);
             ResizeChildForm(hoaDonReportOptionForm);
             ResizeChildForm(chiTietHoaDonForm);
+            ResizeChildForm(sinhVienReportOptionForm);
 
-           
         }
 
         private void sinhVienOpenBtn_Click(object sender, EventArgs e)
         {
 
             CloseAllChildForms();
-            sinhVienForm = new SinhVienForm(maKhoa, tenKhoa);
-            sinhVienForm.AutoScroll = false;          
+            sinhVienForm = new SinhVienForm(this, maKhoa, tenKhoa);
+            sinhVienForm.AutoScroll = false;
+            
             ResizeChildForm(sinhVienForm);
-            sinhVienForm.FormBorderStyle = FormBorderStyle.None;
+            
             sinhVienForm.MdiParent = this;
             sinhVienForm.Show();
         
@@ -69,7 +77,7 @@ namespace WindowsFormsApp2
             CloseAllChildForms();
             nhanVienForm = new NhanVienForm(maKhoa, tenKhoa);
             nhanVienForm.AutoScroll = false;
-            nhanVienForm.FormBorderStyle = FormBorderStyle.None;
+          
             ResizeChildForm(nhanVienForm);
             nhanVienForm.MdiParent = this;
             nhanVienForm.Show();
@@ -82,7 +90,7 @@ namespace WindowsFormsApp2
             monHocForm.AutoScroll = false;
             
             ResizeChildForm(monHocForm);
-            monHocForm.FormBorderStyle = FormBorderStyle.None;
+           
             monHocForm.MdiParent = this;
             monHocForm.Show();
         }
@@ -90,9 +98,9 @@ namespace WindowsFormsApp2
         private void khoaOpenBtn_Click(object sender, EventArgs e)
         {
             CloseAllChildForms();
-            khoaForm = new KhoaForm();
+            khoaForm = new LopHanhChinhForm(maKhoa, tenKhoa);
             khoaForm.AutoScroll = false;
-            khoaForm.FormBorderStyle = FormBorderStyle.None;
+            
             ResizeChildForm(khoaForm);
             khoaForm.MdiParent = this;
             khoaForm.Show();
@@ -103,7 +111,7 @@ namespace WindowsFormsApp2
             CloseAllChildForms();
             hoaDonForm = new HoaDonForm(this, maKhoa, tenKhoa);
             hoaDonForm.AutoScroll = false;
-            hoaDonForm.FormBorderStyle= FormBorderStyle.None;
+            
             ResizeChildForm(hoaDonForm);
             hoaDonForm.MdiParent = this;
             hoaDonForm.Show();
@@ -113,7 +121,7 @@ namespace WindowsFormsApp2
         {
             hoaDonReportOptionForm = new HoaDonReportOptionForm(maKhoa, tenKhoa);
             hoaDonReportOptionForm.AutoScroll = false;
-            hoaDonReportOptionForm.FormBorderStyle = FormBorderStyle.None;
+            
             ResizeChildForm(hoaDonReportOptionForm);
             hoaDonReportOptionForm.MdiParent = this;
             hoaDonReportOptionForm.Show();
@@ -124,7 +132,7 @@ namespace WindowsFormsApp2
         {
             chiTietHoaDonForm = new ChiTietHoaDonFormXem(maHD);
             chiTietHoaDonForm.AutoScroll = false;
-            chiTietHoaDonForm.FormBorderStyle = FormBorderStyle.None;
+            
             ResizeChildForm(chiTietHoaDonForm);
             chiTietHoaDonForm.MdiParent = this;
             chiTietHoaDonForm.Show();
@@ -138,15 +146,32 @@ namespace WindowsFormsApp2
             }
         }
 
-        private void aToolStripMenuItem_Click(object sender, EventArgs e)
+        public void openSinhVienOptionForm()
         {
-            CloseAllChildForms();
-            hoaDonReportOptionForm = new HoaDonReportOptionForm(maKhoa, tenKhoa);
-            hoaDonReportOptionForm.AutoScroll = false;
-            hoaDonReportOptionForm.FormBorderStyle = FormBorderStyle.None;
-            ResizeChildForm(hoaDonReportOptionForm);
-            hoaDonReportOptionForm.MdiParent = this;
-            hoaDonReportOptionForm.Show();
+            sinhVienReportOptionForm = new SinhVienReportOptionForm(maKhoa);
+            sinhVienReportOptionForm.AutoScroll = false;
+
+            ResizeChildForm(sinhVienReportOptionForm);
+            sinhVienReportOptionForm.MdiParent = this;
+            sinhVienReportOptionForm.Show();
+        }
+
+        
+
+        private void chiTietHoaDonOpenBtn_Click(object sender, EventArgs e)
+        {
+
+            ReportViewer hoaDonReoportFormView = new ReportViewer();
+
+           
+            hoaDonReoportFormView.Show();
+            //CloseAllChildForms();
+            //ChiTietHoaDonFormEdit = new ChiTietHoaDonFormEdit(maHD);
+            //ChiTietHoaDonFormEdit.AutoScroll = false;
+            //ChiTietHoaDonFormEdit.FormBorderStyle = FormBorderStyle.None;
+            //ResizeChildForm(ChiTietHoaDonFormEdit);
+            //ChiTietHoaDonFormEdit.MdiParent = this;
+            //ChiTietHoaDonFormEdit.Show();
         }
     }
 

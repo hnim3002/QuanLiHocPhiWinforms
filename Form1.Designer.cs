@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp2
 {
-    partial class ChiTietHoaDonReportViewer
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // crystalReportViewer1
+            // panel1
             // 
-            this.crystalReportViewer1.ActiveViewIndex = -1;
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(800, 450);
-            this.crystalReportViewer1.TabIndex = 0;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(225, 730);
+            this.panel1.TabIndex = 1;
             // 
-            // ChiTietHoaDonReportViewer
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Location = new System.Drawing.Point(510, 210);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(401, 301);
+            this.panel2.TabIndex = 0;
+            // 
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.crystalReportViewer1);
-            this.Name = "ChiTietHoaDonReportViewer";
-            this.Text = "ChiTietHoaDonReportViewer";
+            this.ClientSize = new System.Drawing.Size(1256, 730);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.IsMdiContainer = true;
+            this.Name = "Form1";
+            this.Text = "Form1";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        public CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
