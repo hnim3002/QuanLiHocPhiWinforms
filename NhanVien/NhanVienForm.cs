@@ -125,6 +125,7 @@ namespace WindowsFormsApp2
                     command.Parameters.Add(new SqlParameter("@Nsinh", NgaySinh));
                     command.Parameters.Add(new SqlParameter("@GT", gioiTinh));
                     command.Parameters.Add(new SqlParameter("@CMND", textBoxCCCD.Text));
+                    command.Parameters.Add(new SqlParameter("@soDT", textBoxSoDT.Text));
 
                     command.ExecuteNonQuery();
                 }
@@ -164,6 +165,7 @@ namespace WindowsFormsApp2
                     command.Parameters.Add(new SqlParameter("@Nsinh", NgaySinh));
                     command.Parameters.Add(new SqlParameter("@GT", gioiTinh));
                     command.Parameters.Add(new SqlParameter("@CMND", textBoxCCCD.Text));
+                    command.Parameters.Add(new SqlParameter("@soDT", textBoxSoDT.Text));
                     command.ExecuteNonQuery();
                 }
             }
@@ -201,7 +203,7 @@ namespace WindowsFormsApp2
             textBoxMaNV.Text = nhanVienTable.Rows[row].Cells["Mã Nhân Viên"].Value.ToString();
             textBoxTenNV.Text = nhanVienTable.Rows[row].Cells["Tên Nhân Viên"].Value.ToString();
             textBoxCCCD.Text = nhanVienTable.Rows[row].Cells["CMND"].Value.ToString();
-
+            textBoxSoDT.Text = nhanVienTable.Rows[row].Cells["Số Điện Thoại"].Value.ToString();
 
             if (nhanVienTable.Rows[row].Cells["Giới Tính"].Value.ToString().Equals("Nam"))
             {
