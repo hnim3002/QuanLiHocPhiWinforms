@@ -63,16 +63,7 @@ namespace WindowsFormsApp2
 
         }
 
-        //private void pollingTimer_Tick(object sender, EventArgs e)
-        //{
-        //    // Truy vấn database để lấy dữ liệu mới
-        //    DataTable dataTable = GetNewDataFromDatabase();
-
-        //    // Cập nhật DataGridView với dữ liệu mới
-        //    sinhVienTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        //    sinhVienTable.Width = this.Width;
-        //    sinhVienTable.DataSource = dataTable;
-        //}
+        
 
        
         private void updateTable()

@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp2.NhanVien;
+using WindowsFormsApp2.SinhVien;
 
 namespace WindowsFormsApp2
 {
@@ -235,11 +237,32 @@ namespace WindowsFormsApp2
                     SqlDataAdapter dataAdapter = new SqlDataAdapter("Search_NV_MaNV", connection);
                     dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
                     dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maSV", searchMaNV.Text));
-                    dataAdapter.TableMappings.Add("Table", "SinhVien");
+                    dataAdapter.TableMappings.Add("Table", "NhanVien");
                     dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                     DataSet dataset = new DataSet();
                     dataAdapter.Fill(dataset);
-                    DataTable dataTable = dataset.Tables["SinhVien"];
+                    DataTable dataTable = dataset.Tables["NhanVien"];
+                    nhanVienTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    nhanVienTable.DataSource = dataTable;
+                }
+            }
+            else if (!string.IsNullOrEmpty(searchTenNV.Text))
+            {
+                SqlConnection connection = new SqlConnection();
+                connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+
+                using (connection)
+                {
+                    connection.Open();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("Search_NV_TenNV_NgaySinh", connection);
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@tenNV", searchTenNV.Text));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@ngaySinh", searchNgaySinh.Value));
+                    dataAdapter.TableMappings.Add("Table", "NhanVien");
+                    dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    DataSet dataset = new DataSet();
+                    dataAdapter.Fill(dataset);
+                    DataTable dataTable = dataset.Tables["NhanVien"];
                     nhanVienTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     nhanVienTable.DataSource = dataTable;
                 }
@@ -248,7 +271,24 @@ namespace WindowsFormsApp2
 
         private void baoCaoBtn_Click(object sender, EventArgs e)
         {
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
 
+            using (connection)
+            {
+                connection.Open();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("Select_NV_Report", connection);
+                dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+               
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                NhanVienReport nhanVienReport = new NhanVienReport();
+                nhanVienReport.SetDataSource(dataTable);
+                ReportViewer chiTietHoaDonFormView = new ReportViewer();
+                chiTietHoaDonFormView.crystalReportViewer1.ReportSource = nhanVienReport;
+                chiTietHoaDonFormView.Show();
+            }
         }
     }
 }

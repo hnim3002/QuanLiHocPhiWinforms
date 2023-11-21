@@ -290,5 +290,179 @@ namespace WindowsFormsApp2
             return false;
         }
 
+        private void showAllBtn_Click(object sender, EventArgs e)
+        {
+            updateTable();
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+            if (!string.IsNullOrEmpty(searchMaHD.Text))
+            {
+                
+
+                using (connection)
+                {
+                    connection.Open();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("Search_HD_MaHD", connection);
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maHD", searchMaHD.Text));
+                    dataAdapter.TableMappings.Add("Table", "HoaDon");
+                    dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    DataSet dataset = new DataSet();
+                    dataAdapter.Fill(dataset);
+                    DataTable dataTable = dataset.Tables["HoaDon"];
+                    hoaDonTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    hoaDonTable.DataSource = dataTable;
+                }
+            }
+            else if(!string.IsNullOrEmpty(searchMaSV.Text) && string.IsNullOrEmpty(searchHocKy.Text) 
+                                                            && string.IsNullOrEmpty(searchNamHoc.Text) 
+                                                              && radioTatCa.Checked)
+            {
+                using (connection)
+                {
+                    connection.Open();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("Search_HD_MaSV", connection);
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maSV", searchMaSV.Text));
+                    dataAdapter.TableMappings.Add("Table", "HoaDon");
+                    dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    DataSet dataset = new DataSet();
+                    dataAdapter.Fill(dataset);
+                    DataTable dataTable = dataset.Tables["HoaDon"];
+                    hoaDonTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    hoaDonTable.DataSource = dataTable;
+                }
+            }
+            else if(!string.IsNullOrEmpty(searchMaSV.Text) && string.IsNullOrEmpty(searchHocKy.Text)
+                                                            && string.IsNullOrEmpty(searchNamHoc.Text)
+                                                              && radioDaNop.Checked)
+            {
+                using (connection)
+                {
+                    connection.Open();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("Search_HD_MaSV_TrangThai", connection);
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maSV", searchMaSV.Text));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@trangThai", 1));
+                    dataAdapter.TableMappings.Add("Table", "HoaDon");
+                    dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    DataSet dataset = new DataSet();
+                    dataAdapter.Fill(dataset);
+                    DataTable dataTable = dataset.Tables["HoaDon"];
+                    hoaDonTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    hoaDonTable.DataSource = dataTable;
+                }
+            }
+            else if (!string.IsNullOrEmpty(searchMaSV.Text) && string.IsNullOrEmpty(searchHocKy.Text)
+                                                            && string.IsNullOrEmpty(searchNamHoc.Text)
+                                                              && radioChuaNop.Checked)
+            {
+                using (connection)
+                {
+                    connection.Open();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("Search_HD_MaSV_TrangThai", connection);
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maSV", searchMaSV.Text));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@trangThai", 0));
+                    dataAdapter.TableMappings.Add("Table", "HoaDon");
+                    dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    DataSet dataset = new DataSet();
+                    dataAdapter.Fill(dataset);
+                    DataTable dataTable = dataset.Tables["HoaDon"];
+                    hoaDonTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    hoaDonTable.DataSource = dataTable;
+                }
+            }
+            else if (!string.IsNullOrEmpty(searchMaSV.Text) && !string.IsNullOrEmpty(searchHocKy.Text)
+                                                            && !string.IsNullOrEmpty(searchNamHoc.Text)
+                                                              && radioTatCa.Checked)
+            {
+                using (connection)
+                {
+                    connection.Open();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("Search_HD_MaSV_HocKy_NamHoc", connection);
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maSV", searchMaSV.Text));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@namHoc", searchNamHoc.Text));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@hocKy", Int32.Parse(searchHocKy.Text)));
+                    dataAdapter.TableMappings.Add("Table", "HoaDon");
+                    dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    DataSet dataset = new DataSet();
+                    dataAdapter.Fill(dataset);
+                    DataTable dataTable = dataset.Tables["HoaDon"];
+                    hoaDonTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    hoaDonTable.DataSource = dataTable;
+                }
+            }
+            else if (!string.IsNullOrEmpty(searchMaSV.Text) && !string.IsNullOrEmpty(searchHocKy.Text)
+                                                            && !string.IsNullOrEmpty(searchNamHoc.Text)
+                                                              && radioTatCa.Checked)
+            {
+                using (connection)
+                {
+                    connection.Open();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("Search_HD_MaSV_HocKy_NamHoc", connection);
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maSV", searchMaSV.Text));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@namHoc", searchNamHoc.Text));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@hocKy", Int32.Parse(searchHocKy.Text)));
+                    dataAdapter.TableMappings.Add("Table", "HoaDon");
+                    dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    DataSet dataset = new DataSet();
+                    dataAdapter.Fill(dataset);
+                    DataTable dataTable = dataset.Tables["HoaDon"];
+                    hoaDonTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    hoaDonTable.DataSource = dataTable;
+                }
+            }
+            else if (!string.IsNullOrEmpty(searchMaSV.Text) && !string.IsNullOrEmpty(searchHocKy.Text)
+                                                            && !string.IsNullOrEmpty(searchNamHoc.Text)
+                                                              && radioDaNop.Checked)
+            {
+                using (connection)
+                {
+                    connection.Open();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("Search_HD_MaSV_HocKy_NamHoc_TrangThai", connection);
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maSV", searchMaSV.Text));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@namHoc", searchNamHoc.Text));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@hocKy", Int32.Parse(searchHocKy.Text)));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@trangThai", 1));
+                    dataAdapter.TableMappings.Add("Table", "HoaDon");
+                    dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    DataSet dataset = new DataSet();
+                    dataAdapter.Fill(dataset);
+                    DataTable dataTable = dataset.Tables["HoaDon"];
+                    hoaDonTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    hoaDonTable.DataSource = dataTable;
+                }
+            }
+            else if (!string.IsNullOrEmpty(searchMaSV.Text) && !string.IsNullOrEmpty(searchHocKy.Text)
+                                                            && !string.IsNullOrEmpty(searchNamHoc.Text)
+                                                              && radioChuaNop.Checked)
+            {
+                using (connection)
+                {
+                    connection.Open();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("Search_HD_MaSV_HocKy_NamHoc_TrangThai", connection);
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maSV", searchMaSV.Text));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@namHoc", searchNamHoc.Text));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@hocKy", Int32.Parse(searchHocKy.Text)));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@trangThai", 0));
+                    dataAdapter.TableMappings.Add("Table", "HoaDon");
+                    dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    DataSet dataset = new DataSet();
+                    dataAdapter.Fill(dataset);
+                    DataTable dataTable = dataset.Tables["HoaDon"];
+                    hoaDonTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    hoaDonTable.DataSource = dataTable;
+                }
+            }
+        }
     }
 }

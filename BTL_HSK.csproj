@@ -65,6 +65,18 @@
       <DependentUpon>ChiTietHoaDonReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ChiTietHoaDon\OpenChiTietHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTietHoaDon\OpenChiTietHoaDon.Designer.cs">
+      <DependentUpon>OpenChiTietHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\NhanVienReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NhanVienReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SinhVien\SinhVienReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -172,6 +184,13 @@
     <EmbeddedResource Include="ChiTietHoaDon\ChiTietHoaDonReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ChiTietHoaDonReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChiTietHoaDon\OpenChiTietHoaDon.resx">
+      <DependentUpon>OpenChiTietHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien\NhanVienReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NhanVienReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SinhVien\SinhVienReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

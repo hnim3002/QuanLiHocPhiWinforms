@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp2.ChiTietHoaDon;
 
 namespace WindowsFormsApp2
 {
@@ -22,6 +23,7 @@ namespace WindowsFormsApp2
         private HoaDonReportOptionForm hoaDonReportOptionForm;
         private ChiTietHoaDonFormXem chiTietHoaDonForm;
         private SinhVienReportOptionForm sinhVienReportOptionForm;
+        private OpenChiTietHoaDon chiTietHoaDonOpen;
         
 
 
@@ -160,18 +162,14 @@ namespace WindowsFormsApp2
 
         private void chiTietHoaDonOpenBtn_Click(object sender, EventArgs e)
         {
+            CloseAllChildForms();
+            chiTietHoaDonOpen = new OpenChiTietHoaDon(this);
 
-            ReportViewer hoaDonReoportFormView = new ReportViewer();
-
-           
-            hoaDonReoportFormView.Show();
-            //CloseAllChildForms();
-            //ChiTietHoaDonFormEdit = new ChiTietHoaDonFormEdit(maHD);
-            //ChiTietHoaDonFormEdit.AutoScroll = false;
-            //ChiTietHoaDonFormEdit.FormBorderStyle = FormBorderStyle.None;
-            //ResizeChildForm(ChiTietHoaDonFormEdit);
-            //ChiTietHoaDonFormEdit.MdiParent = this;
-            //ChiTietHoaDonFormEdit.Show();
+            chiTietHoaDonOpen.AutoScroll = false;
+            chiTietHoaDonOpen.FormBorderStyle = FormBorderStyle.None;
+            ResizeChildForm(chiTietHoaDonOpen);
+            chiTietHoaDonOpen.MdiParent = this;
+            chiTietHoaDonOpen.Show(); 
         }
     }
 

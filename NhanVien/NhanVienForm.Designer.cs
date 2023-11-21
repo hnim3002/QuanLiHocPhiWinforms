@@ -57,7 +57,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.searchBtn = new System.Windows.Forms.Button();
             this.searchNgaySinh = new System.Windows.Forms.DateTimePicker();
-            this.searchTenSV = new System.Windows.Forms.TextBox();
+            this.searchTenNV = new System.Windows.Forms.TextBox();
             this.searchMaNV = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -312,7 +312,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.searchBtn);
             this.panel1.Controls.Add(this.searchNgaySinh);
-            this.panel1.Controls.Add(this.searchTenSV);
+            this.panel1.Controls.Add(this.searchTenNV);
             this.panel1.Controls.Add(this.searchMaNV);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label9);
@@ -357,12 +357,12 @@
             this.searchNgaySinh.Size = new System.Drawing.Size(200, 22);
             this.searchNgaySinh.TabIndex = 69;
             // 
-            // searchTenSV
+            // searchTenNV
             // 
-            this.searchTenSV.Location = new System.Drawing.Point(101, 115);
-            this.searchTenSV.Name = "searchTenSV";
-            this.searchTenSV.Size = new System.Drawing.Size(205, 22);
-            this.searchTenSV.TabIndex = 69;
+            this.searchTenNV.Location = new System.Drawing.Point(101, 115);
+            this.searchTenNV.Name = "searchTenNV";
+            this.searchTenNV.Size = new System.Drawing.Size(205, 22);
+            this.searchTenNV.TabIndex = 69;
             // 
             // searchMaNV
             // 
@@ -441,7 +441,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button searchBtn;
-        private System.Windows.Forms.TextBox searchTenSV;
+        private System.Windows.Forms.TextBox searchTenNV;
         private System.Windows.Forms.TextBox searchMaNV;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
