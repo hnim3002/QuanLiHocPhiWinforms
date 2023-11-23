@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp2.MonHoc;
+using WindowsFormsApp2.NhanVien;
 
 namespace WindowsFormsApp2
 {
@@ -146,6 +148,97 @@ namespace WindowsFormsApp2
             textBoxTenMon.Text = monHocTable.Rows[row].Cells["Tên Môn Học"].Value.ToString();
             monHocNumberPicker.Value = (int)monHocTable.Rows[row].Cells["Số Tín Chỉ"].Value;
             
+        }
+
+        private void showAllBtn_Click(object sender, EventArgs e)
+        {
+            updateTable();
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            if(!string.IsNullOrEmpty(searchMaMon.Text))
+            {
+                SqlConnection connection = new SqlConnection();
+                connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+
+                using (connection)
+                {
+                    connection.Open();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("search_MonHoc_MaMon", connection);
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maBM", searchMaMon.Text));
+                    dataAdapter.TableMappings.Add("Table", "MonHoc");
+                    dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    DataSet dataset = new DataSet();
+                    dataAdapter.Fill(dataset);
+                    DataTable dataTable = dataset.Tables["MonHoc"];
+                    monHocTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    monHocTable.DataSource = dataTable;
+                }
+            }
+            else if(!string.IsNullOrEmpty(searchTenMon.Text))
+            {
+                SqlConnection connection = new SqlConnection();
+                connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+
+                using (connection)
+                {
+                    connection.Open();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("search_MonHoc_TenMon", connection);
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@tenBM", searchTenMon.Text));
+                    dataAdapter.TableMappings.Add("Table", "MonHoc");
+                    dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    DataSet dataset = new DataSet();
+                    dataAdapter.Fill(dataset);
+                    DataTable dataTable = dataset.Tables["MonHoc"];
+                    monHocTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    monHocTable.DataSource = dataTable;
+                }
+            }
+            else if (!string.IsNullOrEmpty(searchSoTinChi.Text))
+            {
+                SqlConnection connection = new SqlConnection();
+                connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+
+                using (connection)
+                {
+                    connection.Open();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("search_MonHoc_TinChi", connection);
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@soTin", searchSoTinChi.Value));
+                    dataAdapter.TableMappings.Add("Table", "MonHoc");
+                    dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    DataSet dataset = new DataSet();
+                    dataAdapter.Fill(dataset);
+                    DataTable dataTable = dataset.Tables["MonHoc"];
+                    monHocTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    monHocTable.DataSource = dataTable;
+                }
+            }
+        }
+
+        private void baoCaoBtn_Click(object sender, EventArgs e)
+        {
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+
+            using (connection)
+            {
+                connection.Open();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("search_MonHoc_Report", connection);
+                dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                MonHocReport monHocReport = new MonHocReport();
+                monHocReport.SetDataSource(dataTable);
+                ReportViewer chiTietHoaDonFormView = new ReportViewer();
+                chiTietHoaDonFormView.crystalReportViewer1.ReportSource = monHocReport;
+                chiTietHoaDonFormView.Show();
+            }
         }
     }
 }

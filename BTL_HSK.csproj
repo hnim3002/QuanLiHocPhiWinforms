@@ -71,6 +71,12 @@
     <Compile Include="ChiTietHoaDon\OpenChiTietHoaDon.Designer.cs">
       <DependentUpon>OpenChiTietHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="MonHoc\MonHocReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MonHocReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="NhanVien\NhanVienReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,10 +134,10 @@
     <Compile Include="HoaDon\HoaDonForm.Designer.cs">
       <DependentUpon>HoaDonForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MonHocForm.cs">
+    <Compile Include="MonHoc\MonHocForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MonHocForm.Designer.cs">
+    <Compile Include="MonHoc\MonHocForm.Designer.cs">
       <DependentUpon>MonHocForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LopHanhChinhForm.cs">
@@ -188,6 +194,10 @@
     <EmbeddedResource Include="ChiTietHoaDon\OpenChiTietHoaDon.resx">
       <DependentUpon>OpenChiTietHoaDon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MonHoc\MonHocReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MonHocReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="NhanVien\NhanVienReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>NhanVienReport.cs</LastGenOutput>
@@ -222,7 +232,7 @@
     <EmbeddedResource Include="LopHanhChinhForm.resx">
       <DependentUpon>LopHanhChinhForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MonHocForm.resx">
+    <EmbeddedResource Include="MonHoc\MonHocForm.resx">
       <DependentUpon>MonHocForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVien\NhanVienForm.resx">

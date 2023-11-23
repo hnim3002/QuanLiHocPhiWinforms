@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button4 = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.updateBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
@@ -39,8 +38,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.searchBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.searchBtn = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tenKhoaTxt = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,19 +48,9 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(244, 262);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(159, 37);
-            this.button4.TabIndex = 50;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // deleteBtn
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(25, 262);
+            this.deleteBtn.Location = new System.Drawing.Point(141, 253);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(159, 37);
             this.deleteBtn.TabIndex = 49;
@@ -132,7 +121,6 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.addBtn);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.textBoxMaNV);
             this.panel2.Controls.Add(this.deleteBtn);
             this.panel2.Controls.Add(this.updateBtn);
@@ -162,15 +150,6 @@
             this.panel1.Size = new System.Drawing.Size(430, 286);
             this.panel1.TabIndex = 74;
             // 
-            // searchBtn
-            // 
-            this.searchBtn.Location = new System.Drawing.Point(141, 178);
-            this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(159, 37);
-            this.searchBtn.TabIndex = 66;
-            this.searchBtn.Text = "Tìm Kiếm";
-            this.searchBtn.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -180,6 +159,15 @@
             this.label3.TabIndex = 51;
             this.label3.Text = "Tên Lớp Hành Chính";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.Location = new System.Drawing.Point(132, 177);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(159, 37);
+            this.searchBtn.TabIndex = 66;
+            this.searchBtn.Text = "Tìm Kiếm";
+            this.searchBtn.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -236,8 +224,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Button updateBtn;
         private System.Windows.Forms.Button addBtn;

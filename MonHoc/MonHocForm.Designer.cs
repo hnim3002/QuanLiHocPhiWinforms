@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button4 = new System.Windows.Forms.Button();
+            this.baoCaoBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.updateBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
@@ -43,29 +43,32 @@
             this.tenKhoaTxt = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.searchMaMon = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.showAllBtn = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.searchBtn = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.searchTenMon = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.searchSoTinChi = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.monHocNumberPicker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.monHocTable)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchSoTinChi)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button4
+            // baoCaoBtn
             // 
-            this.button4.Location = new System.Drawing.Point(231, 387);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(159, 37);
-            this.button4.TabIndex = 59;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.baoCaoBtn.Location = new System.Drawing.Point(231, 387);
+            this.baoCaoBtn.Name = "baoCaoBtn";
+            this.baoCaoBtn.Size = new System.Drawing.Size(159, 37);
+            this.baoCaoBtn.TabIndex = 59;
+            this.baoCaoBtn.Text = "Báo Cáo";
+            this.baoCaoBtn.UseVisualStyleBackColor = true;
+            this.baoCaoBtn.Click += new System.EventHandler(this.baoCaoBtn_Click);
             // 
             // deleteBtn
             // 
@@ -194,17 +197,55 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.searchMaMon);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.showAllBtn);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.searchBtn);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.searchTenMon);
             this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.searchSoTinChi);
             this.panel1.Location = new System.Drawing.Point(461, 90);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(330, 495);
             this.panel1.TabIndex = 66;
+            // 
+            // searchMaMon
+            // 
+            this.searchMaMon.Cursor = System.Windows.Forms.Cursors.HSplit;
+            this.searchMaMon.Location = new System.Drawing.Point(67, 67);
+            this.searchMaMon.Name = "searchMaMon";
+            this.searchMaMon.Size = new System.Drawing.Size(205, 22);
+            this.searchMaMon.TabIndex = 66;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(64, 48);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 16);
+            this.label6.TabIndex = 64;
+            this.label6.Text = "Mã Môn";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // showAllBtn
+            // 
+            this.showAllBtn.Location = new System.Drawing.Point(82, 387);
+            this.showAllBtn.Name = "showAllBtn";
+            this.showAllBtn.Size = new System.Drawing.Size(159, 37);
+            this.showAllBtn.TabIndex = 72;
+            this.showAllBtn.Text = "Hiện Tất Cả";
+            this.showAllBtn.UseVisualStyleBackColor = true;
+            this.showAllBtn.Click += new System.EventHandler(this.showAllBtn_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(64, 110);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(60, 16);
+            this.label7.TabIndex = 65;
+            this.label7.Text = "Tên Môn";
             // 
             // searchBtn
             // 
@@ -214,56 +255,30 @@
             this.searchBtn.TabIndex = 66;
             this.searchBtn.Text = "Tìm Kiếm";
             this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
-            // textBox3
+            // searchTenMon
             // 
-            this.textBox3.Location = new System.Drawing.Point(48, 191);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(205, 22);
-            this.textBox3.TabIndex = 67;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(45, 173);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(30, 16);
-            this.label11.TabIndex = 66;
-            this.label11.Text = "Lớp";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(48, 125);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(205, 22);
-            this.textBox1.TabIndex = 69;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Cursor = System.Windows.Forms.Cursors.HSplit;
-            this.textBox2.Location = new System.Drawing.Point(48, 67);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(205, 22);
-            this.textBox2.TabIndex = 68;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(45, 48);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 16);
-            this.label10.TabIndex = 66;
-            this.label10.Text = "Mã Sinh Viên";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.searchTenMon.Location = new System.Drawing.Point(67, 129);
+            this.searchTenMon.Name = "searchTenMon";
+            this.searchTenMon.Size = new System.Drawing.Size(205, 22);
+            this.searchTenMon.TabIndex = 67;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(45, 107);
+            this.label9.Location = new System.Drawing.Point(64, 173);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(90, 16);
-            this.label9.TabIndex = 67;
-            this.label9.Text = "Tên Sinh Viên";
+            this.label9.Size = new System.Drawing.Size(68, 16);
+            this.label9.TabIndex = 68;
+            this.label9.Text = "Số Tín Chỉ";
+            // 
+            // searchSoTinChi
+            // 
+            this.searchSoTinChi.Location = new System.Drawing.Point(67, 192);
+            this.searchSoTinChi.Name = "searchSoTinChi";
+            this.searchSoTinChi.Size = new System.Drawing.Size(120, 22);
+            this.searchSoTinChi.TabIndex = 69;
             // 
             // label5
             // 
@@ -287,7 +302,7 @@
             this.panel2.Controls.Add(this.monHocNumberPicker);
             this.panel2.Controls.Add(this.deleteBtn);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.button4);
+            this.panel2.Controls.Add(this.baoCaoBtn);
             this.panel2.Location = new System.Drawing.Point(12, 90);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(430, 495);
@@ -313,6 +328,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.monHocTable)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchSoTinChi)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -322,7 +338,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button baoCaoBtn;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Button updateBtn;
         private System.Windows.Forms.Button addBtn;
@@ -338,13 +354,14 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button searchBtn;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox searchMaMon;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button showAllBtn;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox searchTenMon;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown searchSoTinChi;
     }
 }
