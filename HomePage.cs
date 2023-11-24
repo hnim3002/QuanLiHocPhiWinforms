@@ -30,94 +30,87 @@ namespace WindowsFormsApp2
         public HomePage(string maKhoa, string tenKhoa)
         {
             InitializeComponent();
+            hideSubBtn();
             this.maKhoa = maKhoa;
             this.tenKhoa = tenKhoa;
             this.AutoScroll = false;
            
         }
 
+        private void hideSubBtn()
+        {
+            changePasswordBtn.Visible = false;
+            signOutBtn.Visible = false;
+        }
+
+        private void showSubBtn()
+        {
+            changePasswordBtn.Visible = true;
+            signOutBtn.Visible = true;
+        }
+
         private void ResizeChildForm(Form childForm)
         {
-           
-            childForm.Size = new Size(this.ClientSize.Width - 4, this.ClientSize.Height-28);
-            
 
+            childForm.Size = new Size(this.ClientSize.Width - 177 , this.ClientSize.Height - 5);
         }
 
-
-        private void ParentForm_Resize(object sender, EventArgs e)
+        public void resetButtonColor()
         {
-            // Resize the child form.
-            ResizeChildForm(sinhVienForm);
-            ResizeChildForm(nhanVienForm);
-            ResizeChildForm(monHocForm);
-            ResizeChildForm(khoaForm);
-            ResizeChildForm(hoaDonForm);
-            ResizeChildForm(hoaDonReportOptionForm);
-            ResizeChildForm(chiTietHoaDonForm);
-            ResizeChildForm(sinhVienReportOptionForm);
-
+            if (accountBtn.BackColor == accountBtn.FlatAppearance.MouseOverBackColor)
+            {
+                accountBtn.BackColor = Color.FromArgb(41, 128, 185);
+            }
+            else if (changePasswordBtn.BackColor == changePasswordBtn.FlatAppearance.MouseOverBackColor)
+            {
+                changePasswordBtn.BackColor = Color.FromArgb(41, 128, 185);
+            }
+            else if (signOutBtn.BackColor == signOutBtn.FlatAppearance.MouseOverBackColor)
+            {
+                signOutBtn.BackColor = Color.FromArgb(41, 128, 185);
+            }
+            else if (sinhVienOpenBtn.BackColor == sinhVienOpenBtn.FlatAppearance.MouseOverBackColor)
+            {
+                sinhVienOpenBtn.BackColor = Color.FromArgb(41, 128, 185);
+            }
+            else if (nhanVienOpenBtn.BackColor == nhanVienOpenBtn.FlatAppearance.MouseOverBackColor)
+            {
+                nhanVienOpenBtn.BackColor = Color.FromArgb(41, 128, 185);
+            }
+            else if (lopOpenBtn.BackColor == lopOpenBtn.FlatAppearance.MouseOverBackColor)
+            {
+                lopOpenBtn.BackColor = Color.FromArgb(41, 128, 185);
+            }
+            else if (monHocOpenBtn.BackColor == monHocOpenBtn.FlatAppearance.MouseOverBackColor)
+            {
+                monHocOpenBtn.BackColor = Color.FromArgb(41, 128, 185);
+            }
+            else if (hoaDonOpenBtn.BackColor == hoaDonOpenBtn.FlatAppearance.MouseOverBackColor)
+            {
+                hoaDonOpenBtn.BackColor = Color.FromArgb(41, 128, 185);
+            }
+            else if (chiTietHoaDonOpenBtn.BackColor == chiTietHoaDonOpenBtn.FlatAppearance.MouseOverBackColor)
+            {
+                chiTietHoaDonOpenBtn.BackColor = Color.FromArgb(41, 128, 185);
+            }
         }
-
-        private void sinhVienOpenBtn_Click(object sender, EventArgs e)
+        public void changeButtomColor(Button button)
         {
-
-            CloseAllChildForms();
-            sinhVienForm = new SinhVienForm(this, maKhoa, tenKhoa);
-            sinhVienForm.AutoScroll = false;
-            
-            ResizeChildForm(sinhVienForm);
-            
-            sinhVienForm.MdiParent = this;
-            sinhVienForm.Show();
-        
-        }
-     
-
-        private void nhanVienOpenBtn_Click(object sender, EventArgs e)
-        {
-            CloseAllChildForms();
-            nhanVienForm = new NhanVienForm(maKhoa, tenKhoa);
-            nhanVienForm.AutoScroll = false;
-          
-            ResizeChildForm(nhanVienForm);
-            nhanVienForm.MdiParent = this;
-            nhanVienForm.Show();
+            if (button.BackColor == button.FlatAppearance.MouseOverBackColor)
+            {
+                button.BackColor = Color.FromArgb(41, 128, 185);
+            }
+            else
+            {
+                button.BackColor = button.FlatAppearance.MouseOverBackColor;
+            }
         }
 
-        private void monHocOpenBtn_Click(object sender, EventArgs e)
-        {
-            CloseAllChildForms();
-            monHocForm = new MonHocForm(maKhoa, tenKhoa);
-            monHocForm.AutoScroll = false;
-            
-            ResizeChildForm(monHocForm);
-           
-            monHocForm.MdiParent = this;
-            monHocForm.Show();
-        }
 
-        private void khoaOpenBtn_Click(object sender, EventArgs e)
-        {
-            CloseAllChildForms();
-            khoaForm = new LopHanhChinhForm(maKhoa, tenKhoa);
-            khoaForm.AutoScroll = false;
-            
-            ResizeChildForm(khoaForm);
-            khoaForm.MdiParent = this;
-            khoaForm.Show();
-        }
 
-        private void hoaDonOpenBtn_Click(object sender, EventArgs e)
-        {
-            CloseAllChildForms();
-            hoaDonForm = new HoaDonForm(this, maKhoa, tenKhoa);
-            hoaDonForm.AutoScroll = false;
-            
-            ResizeChildForm(hoaDonForm);
-            hoaDonForm.MdiParent = this;
-            hoaDonForm.Show();
-        }
+
+
+
 
         public void openHoaDonReportOptinForm()
         {
@@ -160,17 +153,102 @@ namespace WindowsFormsApp2
 
         
 
+        
+        
+
+        private void sinhVienOpenBtn_Click(object sender, EventArgs e)
+        {
+            resetButtonColor();
+            changeButtomColor(sinhVienOpenBtn);
+            CloseAllChildForms();
+            sinhVienForm = new SinhVienForm(this, maKhoa, tenKhoa);
+            sinhVienForm.AutoScroll = false;
+            ResizeChildForm(sinhVienForm);
+            sinhVienForm.MdiParent = this;
+            sinhVienForm.Show();
+        }
+
+        private void nhanVienOpenBtn_Click(object sender, EventArgs e)
+        {
+            resetButtonColor();
+            changeButtomColor(nhanVienOpenBtn);
+            CloseAllChildForms();
+            nhanVienForm = new NhanVienForm(maKhoa, tenKhoa);
+            nhanVienForm.AutoScroll = false;
+            ResizeChildForm(nhanVienForm);
+            nhanVienForm.MdiParent = this;
+            nhanVienForm.Show();
+        }
+
+        private void lopOpenBtn_Click(object sender, EventArgs e)
+        {
+            resetButtonColor();
+            changeButtomColor(lopOpenBtn);
+            CloseAllChildForms();
+            khoaForm = new LopHanhChinhForm(maKhoa, tenKhoa);
+            khoaForm.AutoScroll = false;
+
+            ResizeChildForm(khoaForm);
+            khoaForm.MdiParent = this;
+            khoaForm.Show();
+        }
+
+        private void monHocOpenBtn_Click(object sender, EventArgs e)
+        {
+            resetButtonColor();
+            changeButtomColor(monHocOpenBtn);
+            CloseAllChildForms();
+            monHocForm = new MonHocForm(maKhoa, tenKhoa);
+            monHocForm.AutoScroll = false;
+            ResizeChildForm(monHocForm);
+            monHocForm.MdiParent = this;
+            monHocForm.Show();
+        }
+
+        private void hoaDonOpenBtn_Click(object sender, EventArgs e)
+        {
+            resetButtonColor();
+            changeButtomColor(hoaDonOpenBtn);
+            CloseAllChildForms();
+            hoaDonForm = new HoaDonForm(this, maKhoa, tenKhoa);
+            hoaDonForm.AutoScroll = false;
+            ResizeChildForm(hoaDonForm);
+            hoaDonForm.MdiParent = this;
+            hoaDonForm.Show();
+        }
+
         private void chiTietHoaDonOpenBtn_Click(object sender, EventArgs e)
         {
+            resetButtonColor();
+            changeButtomColor(chiTietHoaDonOpenBtn);
             CloseAllChildForms();
             chiTietHoaDonOpen = new OpenChiTietHoaDon(this);
-
             chiTietHoaDonOpen.AutoScroll = false;
             chiTietHoaDonOpen.FormBorderStyle = FormBorderStyle.None;
             ResizeChildForm(chiTietHoaDonOpen);
             chiTietHoaDonOpen.MdiParent = this;
-            chiTietHoaDonOpen.Show(); 
+            chiTietHoaDonOpen.Show();
         }
+
+        private void signOutBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SignIn signIn = new SignIn();
+            signIn.Closed += (s, args) => this.Close();
+            signIn.Show();
+        }
+
+        private void accountBtn_Click(object sender, EventArgs e)
+        {
+            if (changePasswordBtn.Visible == true) hideSubBtn();
+            else if (changePasswordBtn.Visible == false) showSubBtn();
+        }
+
+        private void changePasswordBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 
 }
