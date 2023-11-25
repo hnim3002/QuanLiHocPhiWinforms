@@ -97,13 +97,13 @@ namespace WindowsFormsApp2
                 dataTable = dataProvider.execQuery(qry.ToString());
                 maKhoa = dataTable.Rows[0]["MaKhoa"].ToString();
                 this.Hide();
-                HomePage homePage = new HomePage(maKhoa, tenKhoaComboBox.Text);
+                HomePage homePage = new HomePage(maKhoa, tenKhoaComboBox.Text, accountTxt.Text);
                 homePage.Closed += (s, args) => this.Close();
                 homePage.Show();
             }
             else
             {
-                MessageBox.Show("sdlafkj");
+                MessageBox.Show("Tên tài khoản hoặc mật khẩu không đúng");
             }
         }
     }

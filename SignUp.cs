@@ -21,24 +21,31 @@ namespace WindowsFormsApp2
             InitializeComponent();
         }
 
-        private void signInBtn_Click(object sender, EventArgs e)
+       
+
+        
+        private void SignUp_Load(object sender, EventArgs e)
         {
-            this.Hide();
-            SignIn signIn = new SignIn();
-            signIn.Closed += (s, args) => this.Close();
-            signIn.Show();
+            DataTable dataTable = new DataTable();
+            StringBuilder qry = new StringBuilder("EXEC Select_tenKhoa");
+            dataTable = dataProvider.execQuery(qry.ToString());
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                tenKhoaComboBox.Items.Add(row["TenKhoa"]);
+            }
         }
 
-        private void signUpBtn_Click(object sender, EventArgs e)
+        private void signUpBtn_Click_1(object sender, EventArgs e)
         {
-            if(passwordTxt.Text.ToString().Equals(rePasswordTxt.Text.ToString()))
+            if (passwordTxt.Text.ToString().Equals(rePasswordTxt.Text.ToString()))
             {
                 string a = tenKhoaComboBox.SelectedItem.ToString();
                 StringBuilder qry = new StringBuilder("EXEC insert_TaiKhoan");
                 qry.Append(" @tk= '" + accountTxt.Text + "'");
                 qry.Append(",@mk= N'" + passwordTxt.Text + "'");
                 qry.Append(",@tenKhoa= N'" + tenKhoaComboBox.Text + "'");
-                
+
                 dataProvider.execNonQuery(qry.ToString());
                 //SqlConnection connection = new SqlConnection();
                 //connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
@@ -70,19 +77,18 @@ namespace WindowsFormsApp2
                 signIn.Closed += (s, args) => this.Close();
                 signIn.Show();
             }
-            
+            else
+            {
+                MessageBox.Show("Bạn đã nhập sai mật khẩu");
+            }
         }
 
-        private void SignUp_Load(object sender, EventArgs e)
+        private void signInBtn_Click_1(object sender, EventArgs e)
         {
-            DataTable dataTable = new DataTable();
-            StringBuilder qry = new StringBuilder("EXEC Select_tenKhoa");
-            dataTable = dataProvider.execQuery(qry.ToString());
-
-            foreach (DataRow row in dataTable.Rows)
-            {
-                tenKhoaComboBox.Items.Add(row["TenKhoa"]);
-            }
+            this.Hide();
+            SignIn signIn = new SignIn();
+            signIn.Closed += (s, args) => this.Close();
+            signIn.Show();
         }
     }
 }

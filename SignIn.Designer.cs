@@ -32,7 +32,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.linkSignUpBtn = new System.Windows.Forms.LinkLabel();
             this.label8 = new System.Windows.Forms.Label();
@@ -44,9 +43,10 @@
             this.accountTxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.passwordTxt = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -100,16 +100,6 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "Welcome to the";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WindowsFormsApp2.Properties.Resources.logo10;
-            this.pictureBox1.Location = new System.Drawing.Point(56, 39);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 218);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -172,7 +162,6 @@
             this.label1.Size = new System.Drawing.Size(330, 69);
             this.label1.TabIndex = 10;
             this.label1.Text = "Đăng Nhập";
-      
             // 
             // label4
             // 
@@ -188,9 +177,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(119, 302);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 16);
+            this.label2.Size = new System.Drawing.Size(95, 16);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Account";
+            this.label2.Text = "Tên Tài Khoản";
             // 
             // signInBtn
             // 
@@ -219,16 +208,27 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(119, 364);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 16);
+            this.label3.Size = new System.Drawing.Size(62, 16);
             this.label3.TabIndex = 13;
-            this.label3.Text = "Password";
+            this.label3.Text = "Mật Khẩu";
             // 
             // passwordTxt
             // 
             this.passwordTxt.Location = new System.Drawing.Point(122, 383);
             this.passwordTxt.Name = "passwordTxt";
+            this.passwordTxt.PasswordChar = '*';
             this.passwordTxt.Size = new System.Drawing.Size(290, 22);
             this.passwordTxt.TabIndex = 14;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WindowsFormsApp2.Properties.Resources.logo10;
+            this.pictureBox1.Location = new System.Drawing.Point(56, 39);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(225, 218);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // SignIn
             // 
@@ -243,9 +243,9 @@
             this.Load += new System.EventHandler(this.SignIn_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
