@@ -15,6 +15,7 @@ namespace WindowsFormsApp2
     {
         private string maKhoa;
         private string tenKhoa;
+        private string taiKhoan;
         private SinhVienForm sinhVienForm;
         private NhanVienForm nhanVienForm;
         private MonHocForm monHocForm;
@@ -27,12 +28,13 @@ namespace WindowsFormsApp2
         
 
 
-        public HomePage(string maKhoa, string tenKhoa)
+        public HomePage(string maKhoa, string tenKhoa, string taiKhoan)
         {
             InitializeComponent();
             hideSubBtn();
             this.maKhoa = maKhoa;
             this.tenKhoa = tenKhoa;
+            this.taiKhoan = taiKhoan;
             this.AutoScroll = false;
            
         }
@@ -246,7 +248,10 @@ namespace WindowsFormsApp2
 
         private void changePasswordBtn_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            ResetPassword resetPassword = new ResetPassword(maKhoa, tenKhoa, taiKhoan);
+            resetPassword.Closed += (s, args) => this.Close();
+            resetPassword.Show();
         }
 
     }

@@ -62,7 +62,7 @@ namespace WindowsFormsApp2
                 buttonColumn.UseColumnTextForButtonValue = true;
                 if (hoaDonTable.Columns[""] == null)
                 {
-                    hoaDonTable.Columns.Insert(10, buttonColumn);
+                    hoaDonTable.Columns.Insert(11, buttonColumn);
                 }
                 hoaDonTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
@@ -95,7 +95,7 @@ namespace WindowsFormsApp2
                 buttonColumn.UseColumnTextForButtonValue = true;
                 if (hoaDonTable.Columns[""] == null)
                 {
-                    hoaDonTable.Columns.Insert(10, buttonColumn);
+                    hoaDonTable.Columns.Insert(11, buttonColumn);
                 }
                 hoaDonTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 

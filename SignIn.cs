@@ -23,36 +23,6 @@ namespace WindowsFormsApp2
         }
 
 
-        private void signInBtn_Click(object sender, EventArgs e)
-        {
-            if(checkTaiKhoan(accountTxt.Text.ToString(), passwordTxt.Text.ToString(), tenKhoaComboBox.Text))
-            {
-                string maKhoa = "0";
-                DataTable dataTable = new DataTable();
-                StringBuilder qry = new StringBuilder("EXEC Select_maKhoa ");
-                qry.Append("@tenKhoa = N'" + tenKhoaComboBox.Text + "'");        
-                dataTable = dataProvider.execQuery(qry.ToString());
-                maKhoa = dataTable.Rows[0]["MaKhoa"].ToString();    
-                this.Hide();
-                HomePage homePage = new HomePage(maKhoa, tenKhoaComboBox.Text);
-                homePage.Closed += (s, args) => this.Close();
-                homePage.Show();
-            }
-            else
-            {
-                MessageBox.Show("sdlafkj");
-            }
-        }
-
-        private void signUpBtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            SignUp signUp = new SignUp();
-            signUp.Closed += (s, args) => this.Close();
-            signUp.Show();
-
-        }
-
         public bool checkTaiKhoan(string taiKhoan, string matKhau, string tenKhoa)
         {
 
@@ -103,6 +73,37 @@ namespace WindowsFormsApp2
             foreach (DataRow row in dataTable.Rows)
             {
                 tenKhoaComboBox.Items.Add(row["TenKhoa"]);
+            }
+        }
+
+
+        private void linkSignUpBtn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            SignUp signUp = new SignUp();
+            signUp.Closed += (s, args) => this.Close();
+            signUp.Show();
+        }
+
+
+        private void signInBtn_Click_1(object sender, EventArgs e)
+        {
+            if (checkTaiKhoan(accountTxt.Text.ToString(), passwordTxt.Text.ToString(), tenKhoaComboBox.Text))
+            {
+                string maKhoa = "0";
+                DataTable dataTable = new DataTable();
+                StringBuilder qry = new StringBuilder("EXEC Select_maKhoa ");
+                qry.Append("@tenKhoa = N'" + tenKhoaComboBox.Text + "'");
+                dataTable = dataProvider.execQuery(qry.ToString());
+                maKhoa = dataTable.Rows[0]["MaKhoa"].ToString();
+                this.Hide();
+                HomePage homePage = new HomePage(maKhoa, tenKhoaComboBox.Text, accountTxt.Text);
+                homePage.Closed += (s, args) => this.Close();
+                homePage.Show();
+            }
+            else
+            {
+                MessageBox.Show("Tên tài khoản hoặc mật khẩu không đúng");
             }
         }
     }

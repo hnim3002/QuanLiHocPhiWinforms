@@ -21,6 +21,15 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
             this.maKhoa = maKhoa;
+            AutoScaleMode = AutoScaleMode.Inherit;
+
+            // Set the Dock property to Fill.
+            Dock = DockStyle.Fill;
+
+            // Set the Anchor property to Top, Bottom, Left, and Right.
+            Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+       
         }
 
         private void baoCaoBtn_Click(object sender, EventArgs e)
