@@ -90,5 +90,20 @@ namespace WindowsFormsApp2
             signIn.Closed += (s, args) => this.Close();
             signIn.Show();
         }
+
+        private void enter_signup(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (tenKhoaComboBox.Text.Equals("") || accountTxt.Text.Equals("") || passwordTxt.Text.Equals("") || rePasswordTxt.Text.Equals(""))
+                {
+                    MessageBox.Show("Vui lòng điền đủ thông tin đăng ký");
+                }
+                else
+                {
+                    signUpBtn.PerformClick();
+                }
+            }
+        }
     }
 }

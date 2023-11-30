@@ -28,7 +28,26 @@ namespace WindowsFormsApp2.ChiTietHoaDon
 
         private void openBtn_Click(object sender, EventArgs e)
         {
+            if (textBoxMaHD.Text.Equals(""))
+            {
+                MessageBox.Show("Vui lòng nhập mã hoá đơn");
+                return;
+            }
             homePage.openChiTietHoaDon(textBoxMaHD.Text);
+        }
+
+        private void enter_print_CTHD(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (textBoxMaHD.Text.Equals(""))
+                {
+                    MessageBox.Show("Vui lòng nhập mã hoá đơn");
+                } else
+                {
+                    openBtn.PerformClick();
+                }
+            }
         }
     }
 }

@@ -27,6 +27,20 @@ namespace WindowsFormsApp2
 
         private void signUpBtn_Click(object sender, EventArgs e)
         {
+            if (oldPasswordTxt.Text.Equals(""))
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu cũ để thay đổi");
+                return;
+            }
+            if (passwordTxt.Text.Equals(""))
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu mới");
+                return;
+            }
+            if (!rePasswordTxt.Text.Equals(passwordTxt.Text))
+            {
+                MessageBox.Show("Mật khẩu nhập lại không chính xác!");
+            }
             if(checkTaiKhoan(taiKhoan, oldPasswordTxt.Text, tenKhoa))
             {
                 SqlConnection connection = new SqlConnection();
@@ -41,6 +55,11 @@ namespace WindowsFormsApp2
                         command.Parameters.Add(new SqlParameter("@tk", taiKhoan));
                         command.Parameters.Add(new SqlParameter("@mk", passwordTxt.Text.ToString()));
                         command.ExecuteNonQuery();
+                        MessageBox.Show("Đổi mật khẩu thành công");
+                        this.Hide();
+                        SignIn signIn = new SignIn();
+                        signIn.Closed += (s, args) => this.Close();
+                        signIn.Show();
                     }
                 }
             }

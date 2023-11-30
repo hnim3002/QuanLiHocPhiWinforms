@@ -135,8 +135,8 @@ namespace WindowsFormsApp2
             {
                 trangThai = false;
             }
-
-            if(checkMaSV())
+            
+            if (checkMaSV())
             {
                 SqlConnection connection = new SqlConnection();
                 connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
@@ -151,7 +151,7 @@ namespace WindowsFormsApp2
                         command.Parameters.Add(new SqlParameter("@MaSV", textBoxMaSV.Text));
                         command.Parameters.Add(new SqlParameter("@maNV", textBoxMaNV.Text));
                         command.Parameters.Add(new SqlParameter("@ngaylap", NgayLap));
-                        command.Parameters.Add(new SqlParameter("@hocKy", (int)hocKyOption.SelectedItem));
+                        command.Parameters.Add(new SqlParameter("@hocKy", Convert.ToInt32(hocKyOption.SelectedItem)));
                         command.Parameters.Add(new SqlParameter("@namHoc", textBoxNamHoc.Text));
                         command.Parameters.Add(new SqlParameter("@trangThai", trangThai));
                         command.Parameters.Add(new SqlParameter("@miengiam", (float)numberBoxMienGiam.Value));

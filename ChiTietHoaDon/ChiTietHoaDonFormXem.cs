@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using WindowsFormsApp2.ChiTietHoaDon;
 
@@ -62,6 +65,7 @@ namespace WindowsFormsApp2
                 hocKyTxt.Text = dataTable.Rows[0]["Học Kỳ"].ToString();
                 mienGiamTxt.Text = dataTable.Rows[0]["MienGiam"].ToString();
                 thanhTienTxt.Text = dataTable.Rows[0]["ThanhTien"].ToString();
+                ngayLapText.Text = dataTable.Rows[0]["Ngày Lập"].ToString();
                 SqlDataAdapter dataAdapter_data = new SqlDataAdapter("Select_CTHD", connection);
                 dataAdapter_data.TableMappings.Add("Table", "ChiTietHoaDon");
                 dataAdapter_data.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -98,6 +102,103 @@ namespace WindowsFormsApp2
                 chiTietHoaDonFormView.crystalReportViewer1.ReportSource = chiTietHoaDonReport;
                 chiTietHoaDonFormView.Show();
             }
+        }
+
+        private void updateTable()
+        {
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+
+            using (connection)
+            {
+                connection.Open();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("Select_CTHD", connection);
+                dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maHD", maHD));
+                dataAdapter.TableMappings.Add("Table", "CTHD");
+                DataSet dataset = new DataSet();
+                dataAdapter.Fill(dataset);
+                DataTable dataTable = dataset.Tables["CTHD"];
+                chiTietHoaDonTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                chiTietHoaDonTable.Width = this.Width;
+                chiTietHoaDonTable.DataSource = dataTable;
+
+            }
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+            using (connection)
+            {
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "proc_insert_CTHD";
+                    command.Parameters.Add(new SqlParameter("@MaHD", maHD));
+                    command.Parameters.Add(new SqlParameter("@MaBM", maMonHocTxt.Text));
+                    command.Parameters.Add(new SqlParameter("@SoTien1Tin", donGiaTxt.Value));
+                 
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            updateTable();
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+
+            using (connection)
+            {
+                connection.Open();
+
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "proc_update_CTHD";
+                    command.Parameters.Add(new SqlParameter("@MaHD", maHD));
+                    command.Parameters.Add(new SqlParameter("@MaBM", maMonHocTxt.Text));
+                    command.Parameters.Add(new SqlParameter("@SoTien1Tin", donGiaTxt.Value));
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            updateTable();
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+            using (connection)
+            {
+                connection.Open();
+
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "proc_delete_CTHD";
+                    command.Parameters.Add(new SqlParameter("@MaHD", maHD));
+                    command.Parameters.Add(new SqlParameter("@MaBM", maMonHocTxt.Text));
+                    command.ExecuteNonQuery();
+                }
+            }
+            updateTable();
+        }
+
+        private void chiTietHoaDonTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            maMonHocTxt.Text = chiTietHoaDonTable.Rows[row].Cells["Mã Môn Học"].Value.ToString();
+            donGiaTxt.Value = Convert.ToDecimal(chiTietHoaDonTable.Rows[row].Cells["Đơn Giá"].Value);
+            
         }
     }
 }

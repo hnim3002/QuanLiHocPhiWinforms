@@ -141,7 +141,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1030, 280);
+            this.dataGridView1.Size = new System.Drawing.Size(1019, 268);
             this.dataGridView1.TabIndex = 64;
             // 
             // comboBoxLop
@@ -168,6 +168,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HoaDonReportOptionForm";
             this.Text = " ";
             this.Load += new System.EventHandler(this.HoaDonReportOptionForm_Load);
