@@ -172,7 +172,7 @@ namespace WindowsFormsApp2
 
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    lopComboBox.Items.Add(row["Lop"]);
+                    comboBoxLop.Items.Add(row["Lop"]);
                 }
 
             }

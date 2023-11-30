@@ -32,7 +32,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.baoCaoBtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.backBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioBNam = new System.Windows.Forms.RadioButton();
@@ -82,14 +82,15 @@
             this.baoCaoBtn.UseVisualStyleBackColor = true;
             this.baoCaoBtn.Click += new System.EventHandler(this.baoCaoBtn_Click);
             // 
-            // button2
+            // backBtn
             // 
-            this.button2.Location = new System.Drawing.Point(42, 31);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.backBtn.Location = new System.Drawing.Point(42, 31);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(75, 23);
+            this.backBtn.TabIndex = 7;
+            this.backBtn.Text = "Quay Lại";
+            this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // panel3
             // 
@@ -160,7 +161,7 @@
             this.Controls.Add(this.lopComboBox);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.backBtn);
             this.Controls.Add(this.baoCaoBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
@@ -183,7 +184,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button baoCaoBtn;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioBNam;
