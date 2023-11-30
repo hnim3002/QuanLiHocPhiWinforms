@@ -32,6 +32,7 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
+            this.donGiaTxt = new System.Windows.Forms.NumericUpDown();
             this.ngayLapText = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.baoCaoBtn = new System.Windows.Forms.Button();
@@ -41,17 +42,14 @@
             this.label = new System.Windows.Forms.Label();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.mienGiamTxt = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.hocKyTxt = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.maMonHocTxt = new System.Windows.Forms.TextBox();
             this.namHocTxt = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.maSVTxt = new System.Windows.Forms.Label();
             this.lopTxt = new System.Windows.Forms.Label();
@@ -64,6 +62,7 @@
             this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chiTietHoaDonTable)).BeginInit();
             this.panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.donGiaTxt)).BeginInit();
             this.SuspendLayout();
             // 
             // chiTietHoaDonTable
@@ -78,6 +77,7 @@
             this.chiTietHoaDonTable.RowTemplate.Height = 24;
             this.chiTietHoaDonTable.Size = new System.Drawing.Size(1351, 338);
             this.chiTietHoaDonTable.TabIndex = 92;
+            this.chiTietHoaDonTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.chiTietHoaDonTable_CellClick);
             // 
             // backBtn
             // 
@@ -102,6 +102,7 @@
             // panel
             // 
             this.panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel.Controls.Add(this.donGiaTxt);
             this.panel.Controls.Add(this.ngayLapText);
             this.panel.Controls.Add(this.label12);
             this.panel.Controls.Add(this.baoCaoBtn);
@@ -111,17 +112,14 @@
             this.panel.Controls.Add(this.label);
             this.panel.Controls.Add(this.deleteBtn);
             this.panel.Controls.Add(this.mienGiamTxt);
-            this.panel.Controls.Add(this.label14);
             this.panel.Controls.Add(this.label3);
             this.panel.Controls.Add(this.label13);
             this.panel.Controls.Add(this.hocKyTxt);
-            this.panel.Controls.Add(this.textBox3);
             this.panel.Controls.Add(this.label2);
-            this.panel.Controls.Add(this.textBox2);
+            this.panel.Controls.Add(this.maMonHocTxt);
             this.panel.Controls.Add(this.namHocTxt);
             this.panel.Controls.Add(this.label6);
             this.panel.Controls.Add(this.label5);
-            this.panel.Controls.Add(this.textBox1);
             this.panel.Controls.Add(this.label4);
             this.panel.Controls.Add(this.maSVTxt);
             this.panel.Controls.Add(this.lopTxt);
@@ -135,11 +133,18 @@
             this.panel.Size = new System.Drawing.Size(1351, 288);
             this.panel.TabIndex = 138;
             // 
+            // donGiaTxt
+            // 
+            this.donGiaTxt.Location = new System.Drawing.Point(448, 165);
+            this.donGiaTxt.Name = "donGiaTxt";
+            this.donGiaTxt.Size = new System.Drawing.Size(120, 22);
+            this.donGiaTxt.TabIndex = 104;
+            // 
             // ngayLapText
             // 
             this.ngayLapText.AutoSize = true;
             this.ngayLapText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ngayLapText.Location = new System.Drawing.Point(1178, 146);
+            this.ngayLapText.Location = new System.Drawing.Point(911, 165);
             this.ngayLapText.Name = "ngayLapText";
             this.ngayLapText.Size = new System.Drawing.Size(70, 18);
             this.ngayLapText.TabIndex = 103;
@@ -149,7 +154,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1089, 146);
+            this.label12.Location = new System.Drawing.Point(822, 165);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(78, 18);
             this.label12.TabIndex = 102;
@@ -173,6 +178,7 @@
             this.addBtn.TabIndex = 56;
             this.addBtn.Text = "Thêm";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // thanhTienTxt
             // 
@@ -192,6 +198,7 @@
             this.updateBtn.TabIndex = 57;
             this.updateBtn.Text = "Sửa";
             this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // label
             // 
@@ -211,6 +218,7 @@
             this.deleteBtn.TabIndex = 58;
             this.deleteBtn.Text = "Xóa";
             this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // mienGiamTxt
             // 
@@ -221,16 +229,6 @@
             this.mienGiamTxt.Size = new System.Drawing.Size(70, 18);
             this.mienGiamTxt.TabIndex = 99;
             this.mienGiamTxt.Text = "Giảm Trừ";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(441, 146);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(88, 16);
-            this.label14.TabIndex = 74;
-            this.label14.Text = "Tên Môn Học";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label3
             // 
@@ -261,14 +259,6 @@
             this.hocKyTxt.TabIndex = 96;
             this.hocKyTxt.Text = "Học Kỳ";
             // 
-            // textBox3
-            // 
-            this.textBox3.Cursor = System.Windows.Forms.Cursors.HSplit;
-            this.textBox3.Location = new System.Drawing.Point(444, 165);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(205, 22);
-            this.textBox3.TabIndex = 77;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -279,12 +269,12 @@
             this.label2.TabIndex = 95;
             this.label2.Text = "Học kỳ:";
             // 
-            // textBox2
+            // maMonHocTxt
             // 
-            this.textBox2.Location = new System.Drawing.Point(60, 165);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(205, 22);
-            this.textBox2.TabIndex = 78;
+            this.maMonHocTxt.Location = new System.Drawing.Point(60, 165);
+            this.maMonHocTxt.Name = "maMonHocTxt";
+            this.maMonHocTxt.Size = new System.Drawing.Size(205, 22);
+            this.maMonHocTxt.TabIndex = 78;
             // 
             // namHocTxt
             // 
@@ -299,7 +289,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(822, 143);
+            this.label6.Location = new System.Drawing.Point(446, 142);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 16);
             this.label6.TabIndex = 79;
@@ -314,13 +304,6 @@
             this.label5.Size = new System.Drawing.Size(76, 18);
             this.label5.TabIndex = 93;
             this.label5.Text = "Năm Học:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(825, 165);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(65, 22);
-            this.textBox1.TabIndex = 80;
             // 
             // label4
             // 
@@ -440,6 +423,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chiTietHoaDonTable)).EndInit();
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.donGiaTxt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -457,17 +441,14 @@
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Label mienGiamTxt;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label hocKyTxt;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox maMonHocTxt;
         private System.Windows.Forms.Label namHocTxt;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label maSVTxt;
         private System.Windows.Forms.Label lopTxt;
@@ -480,5 +461,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label ngayLapText;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown donGiaTxt;
     }
 }

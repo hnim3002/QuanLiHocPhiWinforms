@@ -57,6 +57,12 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.showAllBtn = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.radioTatCa = new System.Windows.Forms.RadioButton();
+            this.radioDaNop = new System.Windows.Forms.RadioButton();
+            this.radioChuaNop = new System.Windows.Forms.RadioButton();
+            this.label13 = new System.Windows.Forms.Label();
             this.searchNamHoc = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.searchHocKy = new System.Windows.Forms.ComboBox();
@@ -66,12 +72,6 @@
             this.lable = new System.Windows.Forms.Label();
             this.searchMaHD = new System.Windows.Forms.TextBox();
             this.searchMaSV = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.radioDaNop = new System.Windows.Forms.RadioButton();
-            this.radioChuaNop = new System.Windows.Forms.RadioButton();
-            this.label13 = new System.Windows.Forms.Label();
-            this.showAllBtn = new System.Windows.Forms.Button();
-            this.radioTatCa = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.hoaDonTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberBoxMienGiam)).BeginInit();
             this.panel.SuspendLayout();
@@ -122,6 +122,8 @@
             // 
             // dateTimeNgayLap
             // 
+            this.dateTimeNgayLap.CustomFormat = "dd/mm/yyyy";
+            this.dateTimeNgayLap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimeNgayLap.Location = new System.Drawing.Point(355, 60);
             this.dateTimeNgayLap.Name = "dateTimeNgayLap";
             this.dateTimeNgayLap.Size = new System.Drawing.Size(200, 22);
@@ -381,6 +383,69 @@
             this.panel1.Size = new System.Drawing.Size(484, 315);
             this.panel1.TabIndex = 66;
             // 
+            // showAllBtn
+            // 
+            this.showAllBtn.Location = new System.Drawing.Point(55, 244);
+            this.showAllBtn.Name = "showAllBtn";
+            this.showAllBtn.Size = new System.Drawing.Size(159, 37);
+            this.showAllBtn.TabIndex = 72;
+            this.showAllBtn.Text = "Hiện Tất Cả";
+            this.showAllBtn.UseVisualStyleBackColor = true;
+            this.showAllBtn.Click += new System.EventHandler(this.showAllBtn_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.radioTatCa);
+            this.panel2.Controls.Add(this.radioDaNop);
+            this.panel2.Controls.Add(this.radioChuaNop);
+            this.panel2.Location = new System.Drawing.Point(150, 171);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(193, 53);
+            this.panel2.TabIndex = 69;
+            // 
+            // radioTatCa
+            // 
+            this.radioTatCa.AutoSize = true;
+            this.radioTatCa.Location = new System.Drawing.Point(53, 28);
+            this.radioTatCa.Name = "radioTatCa";
+            this.radioTatCa.Size = new System.Drawing.Size(68, 20);
+            this.radioTatCa.TabIndex = 44;
+            this.radioTatCa.TabStop = true;
+            this.radioTatCa.Text = "Tất Cả";
+            this.radioTatCa.UseVisualStyleBackColor = true;
+            // 
+            // radioDaNop
+            // 
+            this.radioDaNop.AutoSize = true;
+            this.radioDaNop.Location = new System.Drawing.Point(3, 3);
+            this.radioDaNop.Name = "radioDaNop";
+            this.radioDaNop.Size = new System.Drawing.Size(74, 20);
+            this.radioDaNop.TabIndex = 43;
+            this.radioDaNop.TabStop = true;
+            this.radioDaNop.Text = "Đã Nộp";
+            this.radioDaNop.UseVisualStyleBackColor = true;
+            // 
+            // radioChuaNop
+            // 
+            this.radioChuaNop.AutoSize = true;
+            this.radioChuaNop.Location = new System.Drawing.Point(100, 3);
+            this.radioChuaNop.Name = "radioChuaNop";
+            this.radioChuaNop.Size = new System.Drawing.Size(88, 20);
+            this.radioChuaNop.TabIndex = 42;
+            this.radioChuaNop.TabStop = true;
+            this.radioChuaNop.Text = "Chưa Nộp";
+            this.radioChuaNop.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(147, 152);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(76, 16);
+            this.label13.TabIndex = 68;
+            this.label13.Text = "Trạng Thái ";
+            // 
             // searchNamHoc
             // 
             this.searchNamHoc.Location = new System.Drawing.Point(258, 60);
@@ -462,69 +527,6 @@
             this.searchMaSV.Name = "searchMaSV";
             this.searchMaSV.Size = new System.Drawing.Size(205, 22);
             this.searchMaSV.TabIndex = 71;
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.radioTatCa);
-            this.panel2.Controls.Add(this.radioDaNop);
-            this.panel2.Controls.Add(this.radioChuaNop);
-            this.panel2.Location = new System.Drawing.Point(150, 171);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(193, 53);
-            this.panel2.TabIndex = 69;
-            // 
-            // radioDaNop
-            // 
-            this.radioDaNop.AutoSize = true;
-            this.radioDaNop.Location = new System.Drawing.Point(3, 3);
-            this.radioDaNop.Name = "radioDaNop";
-            this.radioDaNop.Size = new System.Drawing.Size(74, 20);
-            this.radioDaNop.TabIndex = 43;
-            this.radioDaNop.TabStop = true;
-            this.radioDaNop.Text = "Đã Nộp";
-            this.radioDaNop.UseVisualStyleBackColor = true;
-            // 
-            // radioChuaNop
-            // 
-            this.radioChuaNop.AutoSize = true;
-            this.radioChuaNop.Location = new System.Drawing.Point(100, 3);
-            this.radioChuaNop.Name = "radioChuaNop";
-            this.radioChuaNop.Size = new System.Drawing.Size(88, 20);
-            this.radioChuaNop.TabIndex = 42;
-            this.radioChuaNop.TabStop = true;
-            this.radioChuaNop.Text = "Chưa Nộp";
-            this.radioChuaNop.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(147, 152);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(76, 16);
-            this.label13.TabIndex = 68;
-            this.label13.Text = "Trạng Thái ";
-            // 
-            // showAllBtn
-            // 
-            this.showAllBtn.Location = new System.Drawing.Point(55, 244);
-            this.showAllBtn.Name = "showAllBtn";
-            this.showAllBtn.Size = new System.Drawing.Size(159, 37);
-            this.showAllBtn.TabIndex = 72;
-            this.showAllBtn.Text = "Hiện Tất Cả";
-            this.showAllBtn.UseVisualStyleBackColor = true;
-            this.showAllBtn.Click += new System.EventHandler(this.showAllBtn_Click);
-            // 
-            // radioTatCa
-            // 
-            this.radioTatCa.AutoSize = true;
-            this.radioTatCa.Location = new System.Drawing.Point(53, 28);
-            this.radioTatCa.Name = "radioTatCa";
-            this.radioTatCa.Size = new System.Drawing.Size(68, 20);
-            this.radioTatCa.TabIndex = 44;
-            this.radioTatCa.TabStop = true;
-            this.radioTatCa.Text = "Tất Cả";
-            this.radioTatCa.UseVisualStyleBackColor = true;
             // 
             // HoaDonForm
             // 
