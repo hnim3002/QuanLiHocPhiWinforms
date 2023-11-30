@@ -32,6 +32,8 @@
             this.sinhVienTable = new System.Windows.Forms.DataGridView();
             this.tenKhoaTxt = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
+            this.textBoxSoDT = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.radioBNam = new System.Windows.Forms.RadioButton();
             this.radioBNu = new System.Windows.Forms.RadioButton();
@@ -59,8 +61,6 @@
             this.searchMaSV = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBoxSoDT = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sinhVienTable)).BeginInit();
             this.panel.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -124,6 +124,22 @@
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(936, 315);
             this.panel.TabIndex = 27;
+            // 
+            // textBoxSoDT
+            // 
+            this.textBoxSoDT.Location = new System.Drawing.Point(600, 123);
+            this.textBoxSoDT.Name = "textBoxSoDT";
+            this.textBoxSoDT.Size = new System.Drawing.Size(205, 22);
+            this.textBoxSoDT.TabIndex = 67;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(597, 105);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(92, 16);
+            this.label12.TabIndex = 66;
+            this.label12.Text = "Số Điện Thoại";
             // 
             // panel3
             // 
@@ -191,6 +207,7 @@
             this.deleteBtn.TabIndex = 61;
             this.deleteBtn.Text = "Xóa";
             this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // updateBtn
             // 
@@ -200,6 +217,7 @@
             this.updateBtn.TabIndex = 60;
             this.updateBtn.Text = "Sửa";
             this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click_1);
             // 
             // addBtn
             // 
@@ -210,6 +228,7 @@
             this.addBtn.TabIndex = 59;
             this.addBtn.Text = "Thêm";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click_1);
             // 
             // dateTimePicker
             // 
@@ -375,22 +394,6 @@
             this.label9.Size = new System.Drawing.Size(90, 16);
             this.label9.TabIndex = 67;
             this.label9.Text = "Tên Sinh Viên";
-            // 
-            // textBoxSoDT
-            // 
-            this.textBoxSoDT.Location = new System.Drawing.Point(600, 123);
-            this.textBoxSoDT.Name = "textBoxSoDT";
-            this.textBoxSoDT.Size = new System.Drawing.Size(205, 22);
-            this.textBoxSoDT.TabIndex = 67;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(597, 105);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(92, 16);
-            this.label12.TabIndex = 66;
-            this.label12.Text = "Số Điện Thoại";
             // 
             // SinhVienForm
             // 

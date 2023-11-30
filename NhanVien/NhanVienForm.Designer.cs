@@ -218,6 +218,7 @@
             this.deleteBtn.TabIndex = 50;
             this.deleteBtn.Text = "Xóa";
             this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // label2
             // 
@@ -237,6 +238,7 @@
             this.updateBtn.TabIndex = 49;
             this.updateBtn.Text = "Sửa";
             this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // label3
             // 
@@ -255,6 +257,7 @@
             this.addBtn.TabIndex = 48;
             this.addBtn.Text = "Thêm";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click_1);
             // 
             // textBoxCCCD
             // 

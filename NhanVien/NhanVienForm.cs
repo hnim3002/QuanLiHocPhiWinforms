@@ -93,46 +93,7 @@ namespace WindowsFormsApp2
             }
         }
 
-  
-
-        private void addBtn_Click(object sender, EventArgs e)
-        {
-            bool gioiTinh = true;
-         
-            CultureInfo provider = CultureInfo.InvariantCulture;
-            DateTime NgaySinh = DateTime.ParseExact(dateTimePicker.Value.ToString("dd/MM/yyyy"), "dd/MM/yyyy", provider);
-            if (radioBNam.Checked)
-            {
-                gioiTinh = true;
-            }
-            else if (radioBNu.Checked)
-            {
-                gioiTinh = false;
-            }
-
-
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
-            using (connection)
-            {
-                connection.Open();
-                using (SqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = "insert_NV";
-                    command.Parameters.Add(new SqlParameter("@manv", textBoxMaNV.Text));
-                    command.Parameters.Add(new SqlParameter("@tenNV", textBoxTenNV.Text));
-                    command.Parameters.Add(new SqlParameter("@Nsinh", NgaySinh));
-                    command.Parameters.Add(new SqlParameter("@GT", gioiTinh));
-                    command.Parameters.Add(new SqlParameter("@CMND", textBoxCCCD.Text));
-                    command.Parameters.Add(new SqlParameter("@soDT", textBoxSoDT.Text));
-
-                    command.ExecuteNonQuery();
-                }
-            }
-
-            updateTable();
-        }
+     
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
@@ -291,6 +252,44 @@ namespace WindowsFormsApp2
                 chiTietHoaDonFormView.crystalReportViewer1.ReportSource = nhanVienReport;
                 chiTietHoaDonFormView.Show();
             }
+        }
+
+        private void addBtn_Click_1(object sender, EventArgs e)
+        {
+            bool gioiTinh = true;
+
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            DateTime NgaySinh = DateTime.ParseExact(dateTimePicker.Value.ToString("dd/MM/yyyy"), "dd/MM/yyyy", provider);
+            if (radioBNam.Checked)
+            {
+                gioiTinh = true;
+            }
+            else if (radioBNu.Checked)
+            {
+                gioiTinh = false;
+            }
+
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+            using (connection)
+            {
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "insert_NV";
+                    command.Parameters.Add(new SqlParameter("@manv", textBoxMaNV.Text));
+                    command.Parameters.Add(new SqlParameter("@tenNV", textBoxTenNV.Text));
+                    command.Parameters.Add(new SqlParameter("@Nsinh", NgaySinh));
+                    command.Parameters.Add(new SqlParameter("@GT", gioiTinh));
+                    command.Parameters.Add(new SqlParameter("@CMND", textBoxCCCD.Text));
+                    command.Parameters.Add(new SqlParameter("@soDT", textBoxSoDT.Text));
+
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            updateTable();
         }
     }
 }

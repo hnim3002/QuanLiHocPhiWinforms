@@ -62,6 +62,7 @@ namespace WindowsFormsApp2
                 hocKyTxt.Text = dataTable.Rows[0]["Học Kỳ"].ToString();
                 mienGiamTxt.Text = dataTable.Rows[0]["MienGiam"].ToString();
                 thanhTienTxt.Text = dataTable.Rows[0]["ThanhTien"].ToString();
+                ngayLapText.Text = dataTable.Rows[0]["Ngày Lập"].ToString();
                 SqlDataAdapter dataAdapter_data = new SqlDataAdapter("Select_CTHD", connection);
                 dataAdapter_data.TableMappings.Add("Table", "ChiTietHoaDon");
                 dataAdapter_data.SelectCommand.CommandType = CommandType.StoredProcedure;

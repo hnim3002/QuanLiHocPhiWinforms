@@ -89,48 +89,6 @@ namespace WindowsFormsApp2
             }
         }
 
-
-        private void addBtn_Click(object sender, EventArgs e)
-        {
-            bool gioiTinh = true;
-            string maSV, tenSV;
-            
-            maSV = textBoxMaSV.Text.ToString();
-            tenSV = textBoxTenSV.Text;
-            CultureInfo provider = CultureInfo.InvariantCulture;
-            DateTime NgaySinh = DateTime.ParseExact(dateTimePicker.Value.ToString("dd/MM/yyyy"), "dd/MM/yyyy", provider);
-            if (radioBNam.Checked)
-            {
-                gioiTinh = true;
-            }
-            else if (radioBNu.Checked)
-            {
-                gioiTinh = false;
-            }
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
-            using (connection)
-            {
-                connection.Open();
-                using (SqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = "INSERT_SV";
-                    command.Parameters.Add(new SqlParameter("@maSV", maSV));
-                    command.Parameters.Add(new SqlParameter("@TenSV", tenSV));
-                    command.Parameters.Add(new SqlParameter("@GT", gioiTinh));
-                    command.Parameters.Add(new SqlParameter("@Ns", NgaySinh));
-                    command.Parameters.Add(new SqlParameter("@Mak", maKhoa));
-                    command.Parameters.Add(new SqlParameter("@Lop", textBoxLop.Text));
-                    command.Parameters.Add(new SqlParameter("@soDT", textBoxSoDT.Text));
-                        
-                    command.ExecuteNonQuery();
-                }
-            }
-
-            updateTable();
-        }
-
         
 
         private void sinhVienTable_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -158,73 +116,7 @@ namespace WindowsFormsApp2
             dateTimePicker.Value = NgaySinh;
         }
 
-        private void updateBtn_Click(object sender, EventArgs e)
-        {
-            bool gioiTinh = true;
-            string maSV, tenSV, lopHC;
-            lopHC = textBoxLop.Text;
-            maSV = textBoxMaSV.Text;
-            tenSV = textBoxTenSV.Text;
-            CultureInfo provider = CultureInfo.InvariantCulture;
-            DateTime NgaySinh = DateTime.ParseExact(dateTimePicker.Value.ToString("dd/MM/yyyy"), "dd/MM/yyyy", provider);
-            if (radioBNam.Checked)
-            {
-                gioiTinh = true;
-            }
-            else if (radioBNu.Checked)
-            {
-                gioiTinh = false;
-            }
-
-            SqlConnection connection = new SqlConnection();
-
-
-            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
-
-            using (connection)
-            {
-                connection.Open();
-
-                using (SqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = "UPDATE_SV";
-                    command.Parameters.Add(new SqlParameter("@maSV", maSV));
-                    command.Parameters.Add(new SqlParameter("@TenSV", tenSV));
-                    command.Parameters.Add(new SqlParameter("@GT", gioiTinh));
-                    command.Parameters.Add(new SqlParameter("@Ns", NgaySinh));
-                    command.Parameters.Add(new SqlParameter("@Lop", lopHC));
-                    command.Parameters.Add(new SqlParameter("@soDT", textBoxSoDT.Text));
-                    command.ExecuteNonQuery();
-                }
-            }
-            updateTable();
-        }
-
-        private void deleteBtn_Click(object sender, EventArgs e)
-        {
-            string maSV;
-            maSV = textBoxMaSV.Text;
-            SqlConnection connection = new SqlConnection();
-
-
-            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
-
-            using (connection)
-            {
-                connection.Open();
-
-                using (SqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = "delete_SV";
-                    command.Parameters.Add(new SqlParameter("@ma", maSV));
-                    command.ExecuteNonQuery();
-                }
-            }
-            updateTable();
-        }
-
+       
        
 
         private void ChildForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -327,6 +219,114 @@ namespace WindowsFormsApp2
         private void baoCaoBtn_Click(object sender, EventArgs e)
         {
             homePage.openSinhVienOptionForm();
+        }
+
+        private void addBtn_Click_1(object sender, EventArgs e)
+        {
+            bool gioiTinh = true;
+            string maSV, tenSV;
+
+            maSV = textBoxMaSV.Text.ToString();
+            tenSV = textBoxTenSV.Text;
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            DateTime NgaySinh = DateTime.ParseExact(dateTimePicker.Value.ToString("dd/MM/yyyy"), "dd/MM/yyyy", provider);
+            if (radioBNam.Checked)
+            {
+                gioiTinh = true;
+            }
+            else if (radioBNu.Checked)
+            {
+                gioiTinh = false;
+            }
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+            using (connection)
+            {
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "INSERT_SV";
+                    command.Parameters.Add(new SqlParameter("@maSV", maSV));
+                    command.Parameters.Add(new SqlParameter("@TenSV", tenSV));
+                    command.Parameters.Add(new SqlParameter("@GT", gioiTinh));
+                    command.Parameters.Add(new SqlParameter("@Ns", NgaySinh));
+                    command.Parameters.Add(new SqlParameter("@Mak", maKhoa));
+                    command.Parameters.Add(new SqlParameter("@Lop", textBoxLop.Text));
+                    command.Parameters.Add(new SqlParameter("@soDT", textBoxSoDT.Text));
+
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            updateTable();
+        }
+
+        private void updateBtn_Click_1(object sender, EventArgs e)
+        {
+            bool gioiTinh = true;
+            string maSV, tenSV, lopHC;
+            lopHC = textBoxLop.Text;
+            maSV = textBoxMaSV.Text;
+            tenSV = textBoxTenSV.Text;
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            DateTime NgaySinh = DateTime.ParseExact(dateTimePicker.Value.ToString("dd/MM/yyyy"), "dd/MM/yyyy", provider);
+            if (radioBNam.Checked)
+            {
+                gioiTinh = true;
+            }
+            else if (radioBNu.Checked)
+            {
+                gioiTinh = false;
+            }
+
+            SqlConnection connection = new SqlConnection();
+
+
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+
+            using (connection)
+            {
+                connection.Open();
+
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "UPDATE_SV";
+                    command.Parameters.Add(new SqlParameter("@maSV", maSV));
+                    command.Parameters.Add(new SqlParameter("@TenSV", tenSV));
+                    command.Parameters.Add(new SqlParameter("@GT", gioiTinh));
+                    command.Parameters.Add(new SqlParameter("@Ns", NgaySinh));
+                    command.Parameters.Add(new SqlParameter("@Lop", lopHC));
+                    command.Parameters.Add(new SqlParameter("@soDT", textBoxSoDT.Text));
+                    command.ExecuteNonQuery();
+                }
+            }
+            updateTable();
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            string maSV;
+            maSV = textBoxMaSV.Text;
+            SqlConnection connection = new SqlConnection();
+
+
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+
+            using (connection)
+            {
+                connection.Open();
+
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "delete_SV";
+                    command.Parameters.Add(new SqlParameter("@ma", maSV));
+                    command.ExecuteNonQuery();
+                }
+            }
+            updateTable();
         }
     }
 }
