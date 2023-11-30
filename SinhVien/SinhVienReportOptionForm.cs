@@ -16,6 +16,7 @@ namespace WindowsFormsApp2
 {
     public partial class SinhVienReportOptionForm : Form
     {
+        
         private string maKhoa;
         public SinhVienReportOptionForm(string maKhoa)
         {
@@ -51,6 +52,28 @@ namespace WindowsFormsApp2
                 ReportViewer chiTietHoaDonFormView = new ReportViewer();
                 chiTietHoaDonFormView.crystalReportViewer1.ReportSource = sinhVienReport;
                 chiTietHoaDonFormView.Show();
+            }
+        }
+
+        private void SinhVienReportOptionForm_Load(object sender, EventArgs e)
+        {
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["QlHocPhiConnectionString"].ConnectionString;
+
+            using (connection)
+            {
+                connection.Open();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("Select_TenLop", connection);
+                dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    comboBoxLop.Items.Add(row["Lop"]);
+                }
+
             }
         }
     }

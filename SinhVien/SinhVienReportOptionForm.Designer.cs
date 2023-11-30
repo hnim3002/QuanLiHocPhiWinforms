@@ -168,6 +168,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SinhVienReportOptionForm";
             this.Text = "SinhVienReportOptionForm";
+            this.Load += new System.EventHandler(this.SinhVienReportOptionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
