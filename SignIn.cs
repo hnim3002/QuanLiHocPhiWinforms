@@ -106,5 +106,20 @@ namespace WindowsFormsApp2
                 MessageBox.Show("Tên tài khoản hoặc mật khẩu không đúng");
             }
         }
+
+        private void enter_signin(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (accountTxt.Text.Equals("") || passwordTxt.Text.Equals("") || tenKhoaComboBox.Text.Equals(""))
+                {
+                    MessageBox.Show("Vui lòng điền đủ thông tin đăng nhập");
+                }
+                else
+                {
+                    signInBtn.PerformClick();
+                }
+            }
+        }
     }
 }
