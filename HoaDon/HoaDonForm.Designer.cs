@@ -228,6 +228,7 @@
             this.hoaDonTable.RowTemplate.Height = 24;
             this.hoaDonTable.Size = new System.Drawing.Size(1351, 319);
             this.hoaDonTable.TabIndex = 41;
+            this.hoaDonTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.hoaDonTable_CellClick);
             // 
             // radioButtonChuaNop
             // 

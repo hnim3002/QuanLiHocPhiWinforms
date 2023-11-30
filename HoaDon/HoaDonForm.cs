@@ -464,5 +464,31 @@ namespace WindowsFormsApp2
                 }
             }
         }
+
+        private void hoaDonTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            textBoxMaHD.Text = hoaDonTable.Rows[row].Cells["Mã HĐ"].Value.ToString();
+            textBoxMaSV.Text = hoaDonTable.Rows[row].Cells["Mã SV"].Value.ToString();
+            //textBoxMaNV.Text = hoaDonTable.Rows[row].Cells["Mã NV"].Value.ToString();
+            textBoxNamHoc.Text = hoaDonTable.Rows[row].Cells["Năm Học"].Value.ToString();
+            hocKyOption.Text = hoaDonTable.Rows[row].Cells["Học Kỳ"].Value.ToString();
+            numberBoxMienGiam.Value = Convert.ToDecimal(hoaDonTable.Rows[row].Cells["Miễn Giảm"].Value.ToString());
+
+            if (hoaDonTable.Rows[row].Cells["Trạng Thái"].Value.ToString().Equals("Đã Nộp"))
+            {
+                radioButtonDaNop.Checked = true;
+            }
+            else
+            {
+                radioButtonChuaNop.Checked = true;
+            }
+
+
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            DateTime NgaySinh = (DateTime)hoaDonTable.Rows[row].Cells["Ngày Lập"].Value;
+
+            dateTimeNgayLap.Value = NgaySinh;
+        }
     }
 }

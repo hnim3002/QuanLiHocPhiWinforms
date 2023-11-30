@@ -32,6 +32,7 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
+            this.donGiaTxt = new System.Windows.Forms.NumericUpDown();
             this.ngayLapText = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.baoCaoBtn = new System.Windows.Forms.Button();
@@ -61,7 +62,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.maHoaDonTxt = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.donGiaTxt = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.chiTietHoaDonTable)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.donGiaTxt)).BeginInit();
@@ -80,6 +80,7 @@
             this.chiTietHoaDonTable.RowTemplate.Height = 24;
             this.chiTietHoaDonTable.Size = new System.Drawing.Size(1351, 338);
             this.chiTietHoaDonTable.TabIndex = 92;
+            this.chiTietHoaDonTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.chiTietHoaDonTable_CellClick);
             // 
             // backBtn
             // 
@@ -139,6 +140,13 @@
             this.panel.Size = new System.Drawing.Size(1351, 288);
             this.panel.TabIndex = 138;
             // 
+            // donGiaTxt
+            // 
+            this.donGiaTxt.Location = new System.Drawing.Point(824, 166);
+            this.donGiaTxt.Name = "donGiaTxt";
+            this.donGiaTxt.Size = new System.Drawing.Size(120, 22);
+            this.donGiaTxt.TabIndex = 104;
+            // 
             // ngayLapText
             // 
             this.ngayLapText.AutoSize = true;
@@ -179,6 +187,7 @@
             this.addBtn.TabIndex = 56;
             this.addBtn.Text = "Thêm";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // thanhTienTxt
             // 
@@ -199,6 +208,7 @@
             this.updateBtn.TabIndex = 57;
             this.updateBtn.Text = "Sửa";
             this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // label
             // 
@@ -219,6 +229,7 @@
             this.deleteBtn.TabIndex = 58;
             this.deleteBtn.Text = "Xóa";
             this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // mienGiamTxt
             // 
@@ -424,13 +435,6 @@
             this.label10.Size = new System.Drawing.Size(203, 29);
             this.label10.TabIndex = 141;
             this.label10.Text = "Chi Tiết Hóa Đơn:";
-            // 
-            // donGiaTxt
-            // 
-            this.donGiaTxt.Location = new System.Drawing.Point(824, 166);
-            this.donGiaTxt.Name = "donGiaTxt";
-            this.donGiaTxt.Size = new System.Drawing.Size(120, 22);
-            this.donGiaTxt.TabIndex = 104;
             // 
             // ChiTietHoaDonFormXem
             // 
