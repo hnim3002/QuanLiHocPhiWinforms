@@ -122,7 +122,7 @@
             // 
             // dateTimeNgayLap
             // 
-            this.dateTimeNgayLap.CustomFormat = "dd/mm/yyyy";
+            this.dateTimeNgayLap.CustomFormat = "dd/MM/yyyy";
             this.dateTimeNgayLap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimeNgayLap.Location = new System.Drawing.Point(355, 60);
             this.dateTimeNgayLap.Name = "dateTimeNgayLap";

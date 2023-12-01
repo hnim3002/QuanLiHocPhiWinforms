@@ -199,7 +199,7 @@ namespace WindowsFormsApp2
                     connection.Open();
                     SqlDataAdapter dataAdapter = new SqlDataAdapter("Search_NV_MaNV", connection);
                     dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maKhoa", maKhoa));
-                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maSV", searchMaNV.Text));
+                    dataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@maNV", searchMaNV.Text));
                     dataAdapter.TableMappings.Add("Table", "NhanVien");
                     dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                     DataSet dataset = new DataSet();
@@ -280,6 +280,7 @@ namespace WindowsFormsApp2
                     command.CommandText = "insert_NV";
                     command.Parameters.Add(new SqlParameter("@manv", textBoxMaNV.Text));
                     command.Parameters.Add(new SqlParameter("@tenNV", textBoxTenNV.Text));
+                    command.Parameters.Add(new SqlParameter("@makhoa", maKhoa));
                     command.Parameters.Add(new SqlParameter("@Nsinh", NgaySinh));
                     command.Parameters.Add(new SqlParameter("@GT", gioiTinh));
                     command.Parameters.Add(new SqlParameter("@CMND", textBoxCCCD.Text));
