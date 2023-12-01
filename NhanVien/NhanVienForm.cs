@@ -148,8 +148,8 @@ namespace WindowsFormsApp2
                 using (SqlCommand command = connection.CreateCommand())
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = "delete_SV";
-                    command.Parameters.Add(new SqlParameter("@ma", textBoxMaNV.Text));
+                    command.CommandText = "DELETE_NV";
+                    command.Parameters.Add(new SqlParameter("@tenNV", textBoxMaNV.Text));
                     command.ExecuteNonQuery();
                 }
             }
@@ -256,6 +256,14 @@ namespace WindowsFormsApp2
 
         private void addBtn_Click_1(object sender, EventArgs e)
         {
+            //DateTime date = DateTime.Now;
+            //TimeSpan dateDiff = date.Subtract(dateTimePicker.Value);
+            //int tuoi = dateDiff.Days;
+            //if (currentDate.Month < birthDate.Month || (currentDate.Month == birthDate.Month && currentDate.Day < birthDate.Day))
+            //{
+            //    age--;
+            //}
+            //MessageBox.Show(tuoi.ToString());
             bool gioiTinh = true;
 
             CultureInfo provider = CultureInfo.InvariantCulture;
